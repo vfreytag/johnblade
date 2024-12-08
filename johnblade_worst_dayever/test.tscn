@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2mlj64vs6pr1"]
+
+[ext_resource type="Texture2D" uid="uid://c4eae056hhmfe" path="res://icon.svg" id="1_wvlcf"]
+[ext_resource type="Texture2D" uid="uid://dgj68o41vxd1q" path="res://Untitled 11-27-2024 09-18-11.png" id="2_fia83"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="2_h1r0x"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_50ggd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5seoi"]
+size = Vector2(126, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj1e3"]
+size = Vector2(127.114, 126.439)
+
+[sub_resource type="Gradient" id="Gradient_b1sbm"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ouy0h"]
+gradient = SubResource("Gradient_b1sbm")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.463649, 0.149442, 0.238133, 1)
+position = Vector2(93, 47)
+scale = Vector2(12.3125, 7.29688)
+texture = ExtResource("1_wvlcf")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+material = SubResource("CanvasItemMaterial_50ggd")
+position = Vector2(-2, 0)
+script = ExtResource("2_h1r0x")
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_fia83")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(2, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_5seoi")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(141, 231)
+scale = Vector2(9.31445, 2.5625)
+texture = ExtResource("1_wvlcf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Icon3"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon3/StaticBody2D"]
+position = Vector2(0.214715, 0.390244)
+shape = SubResource("RectangleShape2D_jj1e3")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(4.5, 4.5)
+scale = Vector2(4.91797, 687)
+color = Color(1, 0.610781, 0.996005, 1)
+texture = SubResource("GradientTexture1D_ouy0h")
