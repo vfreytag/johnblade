@@ -1,13 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc2y2isjaowar"]
+[gd_scene load_steps=6 format=3 uid="uid://bc2y2isjaowar"]
 
-[ext_resource type="Texture2D" uid="uid://dgj68o41vxd1q" path="res://Project/20_assets/20_sprite/Untitled 11-27-2024 09-18-11.png" id="1_04hi1"]
+[ext_resource type="Texture2D" uid="uid://b54o3g12hd5eh" path="res://Project/20_assets/20_sprite/John_Sprite.png" id="1_ntmv5"]
+[ext_resource type="Script" path="res://Project/10_scripts/johnmovement.gd" id="1_vyl7l"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_kpmxo"]
-size = Vector3(0.19825, 0.899414, 0.146301)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o4gle"]
-atlas = ExtResource("1_04hi1")
-region = Rect2(0, 0, 64, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwrie"]
+atlas = ExtResource("1_ntmv5")
+region = Rect2(0, 0, 62, 112)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o3j07"]
 animations = [{
@@ -18,23 +16,37 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o4gle")
+"texture": SubResource("AtlasTexture_gwrie")
 }],
 "loop": true,
 "name": &"idle_test",
 "speed": 5.0
 }]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kpmxo"]
+size = Vector3(0.19825, 0.899414, 0.146301)
+
 [node name="Player" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625539, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_vyl7l")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D"]
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_o3j07")
+animation = &"idle_test"
+frame_progress = 0.24025
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00552541, -0.050293, -0.0107727)
 shape = SubResource("BoxShape3D_kpmxo")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D"]
-billboard = 1
-sprite_frames = SubResource("SpriteFrames_o3j07")
-animation = &"idle_test"
+[node name="Dash_Timer" type="Timer" parent="CharacterBody3D"]
+wait_time = 0.2
+
+[node name="Can_Dash" type="Timer" parent="CharacterBody3D"]
+wait_time = 2.0
+
+[connection signal="timeout" from="CharacterBody3D/Dash_Timer" to="CharacterBody3D" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="CharacterBody3D/Can_Dash" to="CharacterBody3D" method="_on_can_dash_timeout"]
