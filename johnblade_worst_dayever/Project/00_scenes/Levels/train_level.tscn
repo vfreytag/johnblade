@@ -33,7 +33,7 @@ volumetric_fog_emission = Color(0, 0.116667, 0.25, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016, 1.8737, -0.207521)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.139268, 1.70319)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195011, 1.70319)
 
 [node name="traincart" type="Node3D" parent="."]
 transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, -0.647024, 3.80601, 0.216417)
@@ -43,7 +43,7 @@ use_collision = true
 size = Vector3(17.0878, 0.5, 3.7843)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="traincart/CSGBox3D3ceiling"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3.79039, -0.243999, 0.241)
+transform = Transform3D(1, 0, 0, 0, -0.5, -0.866026, 0, 0.866026, -0.5, 3.79039, -0.243998, -0.860406)
 light_color = Color(0.928242, 0.48372, 0.620047, 1)
 light_energy = 8.823
 light_indirect_energy = 1.025
@@ -53,7 +53,7 @@ shadow_enabled = true
 distance_fade_enabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="traincart/CSGBox3D3ceiling"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.663, -0.244, 0.241)
+transform = Transform3D(1, 0, 0, 0, -0.5, -0.866025, 0, 0.866025, -0.5, -2.663, 0.369228, -0.743007)
 light_color = Color(0.928242, 0.48372, 0.620047, 1)
 light_energy = 8.823
 light_indirect_energy = 1.025
@@ -267,3 +267,15 @@ size = Vector3(10.48, 35.4662, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m5aal")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.06687, -4.86901, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 10.94
+light_volumetric_fog_energy = 16.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1705, -4.86901, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 10.94
+light_volumetric_fog_energy = 16.0
