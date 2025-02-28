@@ -26,27 +26,24 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_kpmxo"]
 size = Vector3(0.19825, 0.899414, 0.146301)
 
-[node name="Player" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625539, 0)
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="John" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53331, 0)
 script = ExtResource("1_vyl7l")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D"]
-billboard = 2
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o3j07")
 animation = &"idle_test"
 frame_progress = 0.24025
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00552541, -0.050293, -0.0107727)
 shape = SubResource("BoxShape3D_kpmxo")
 
-[node name="Dash_Timer" type="Timer" parent="CharacterBody3D"]
+[node name="Dash_Timer" type="Timer" parent="."]
 wait_time = 0.2
 
-[node name="Can_Dash" type="Timer" parent="CharacterBody3D"]
+[node name="Can_Dash" type="Timer" parent="."]
 wait_time = 2.0
 
-[connection signal="timeout" from="CharacterBody3D/Dash_Timer" to="CharacterBody3D" method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="CharacterBody3D/Can_Dash" to="CharacterBody3D" method="_on_can_dash_timeout"]
+[connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Can_Dash" to="." method="_on_can_dash_timeout"]
