@@ -131,7 +131,7 @@ animations = [{
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="RigidBody3D"]
 pixel_size = 0.0305
 sprite_frames = SubResource("SpriteFrames_e5pme")
-frame_progress = 0.188844
+frame_progress = 0.594318
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("BoxShape3D_1cw47")
