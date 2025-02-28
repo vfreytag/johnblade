@@ -1,3 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+johnblade_worst_dayever/Project/00_scenes/Enemy/base_train.tscn
+johnblade_worst_dayever/Project/20_assets/20_sprite/base_train.tscn
