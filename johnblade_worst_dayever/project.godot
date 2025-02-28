@@ -11,6 +11,6 @@ config_version=5
 [application]
 
 config/name="JohnBlade_worst_dayever"
-run/main_scene="res://test.tscn"
+run/main_scene="res://Project/00_scenes/Levels/train_level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
