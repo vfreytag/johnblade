@@ -1,3 +1,159 @@
-[gd_scene format=3 uid="uid://b44yp802ugi1x"]
+[gd_scene load_steps=9 format=3 uid="uid://b44yp802ugi1x"]
+
+[ext_resource type="Texture2D" uid="uid://crrxe1anpg358" path="res://Project/20_assets/20_sprite/askjlfhashuidfh.png" id="1_ki38q"]
+[ext_resource type="PackedScene" uid="uid://bc2y2isjaowar" path="res://Project/00_scenes/Player/Player.tscn" id="2_d1w37"]
+[ext_resource type="Texture2D" uid="uid://8vp004jmn3j2" path="res://Project/20_assets/20_sprite/purepng.com-treenaturetreegreensummer-831524002277v9dmh.png" id="3_mom0p"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iglg2"]
+sky_top_color = Color(0.247716, 0.495267, 0.500767, 1)
+sky_horizon_color = Color(0.251427, 0.347145, 0.19787, 1)
+
+[sub_resource type="Sky" id="Sky_jysr7"]
+sky_material = SubResource("ProceduralSkyMaterial_iglg2")
+
+[sub_resource type="Environment" id="Environment_ky2ed"]
+background_mode = 2
+background_color = Color(0.820727, 0.499349, 0.542175, 1)
+background_energy_multiplier = 0.66
+sky = SubResource("Sky_jysr7")
+fog_enabled = true
+fog_light_color = Color(0.363, 0.55, 0.518833, 1)
+fog_light_energy = 0.67
+fog_density = 0.0259
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1553
+volumetric_fog_albedo = Color(0.3956, 0.76712, 0.86, 1)
+
+[sub_resource type="Texture2DRD" id="Texture2DRD_fxxpx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2esn"]
+albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
+normal_scale = -4.8
+normal_texture = SubResource("Texture2DRD_fxxpx")
 
 [node name="Game" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041, 1.76, -6.634)
+pixel_size = 0.001
+texture = ExtResource("1_ki38q")
+
+[node name="Player" parent="." instance=ExtResource("2_d1w37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016, 1.744, -0.73)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.443332, 1.459)
+environment = SubResource("Environment_ky2ed")
+fov = 95.625
+
+[node name="traincart" type="Node3D" parent="."]
+transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, -0.647024, 3.80601, 0.216417)
+
+[node name="CSGBox3D3ceiling" type="CSGBox3D" parent="traincart"]
+use_collision = true
+size = Vector3(17.0878, 0.5, 3.7843)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="traincart/CSGBox3D3ceiling"]
+transform = Transform3D(0.999909, 0.0134889, -0.000239454, -1.17942e-09, -0.0177491, -0.999843, -0.013491, 0.999752, -0.0177475, -2.66299, -0.243577, 1.1041)
+light_color = Color(1, 0, 0.0166664, 1)
+light_energy = 8.823
+light_volumetric_fog_energy = 1.97
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="traincart/CSGBox3D3ceiling"]
+transform = Transform3D(1, 0, 0, 0, -0.0221638, -0.999754, 0, 0.999754, -0.0221638, 2.61482, 0.309944, 0.216417)
+light_color = Color(1, 0, 0.0166664, 1)
+light_energy = 8.823
+light_volumetric_fog_energy = 1.97
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="wall" type="CSGBox3D" parent="traincart"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0651152, 1.74326, 1.70756)
+use_collision = true
+size = Vector3(17.2883, 0.187988, 4.12549)
+
+[node name="window" type="CSGBox3D" parent="traincart/wall"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.904833, -0.369956, -0.101755)
+operation = 2
+use_collision = true
+size = Vector3(2.5359, 1.6416, 2.145)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="traincart/wall"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.871264, -0.00777209, -0.579092)
+size = Vector3(3.50366, 0.0761108, 0.0969238)
+
+[node name="window2" type="CSGBox3D" parent="traincart/wall"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.50278, -0.369956, -0.101755)
+operation = 2
+use_collision = true
+size = Vector3(2.5359, 1.6416, 2.145)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="traincart/wall"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 5.46921, -0.00777209, -0.579092)
+size = Vector3(3.50366, 0.0761108, 0.0969238)
+
+[node name="window3" type="CSGBox3D" parent="traincart/wall"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3.22094, -0.369956, -0.101755)
+operation = 2
+use_collision = true
+size = Vector3(2.5359, 1.6416, 2.145)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="traincart/wall"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3.2545, -0.00777209, -0.579092)
+size = Vector3(3.50366, 0.0761108, 0.0969238)
+
+[node name="floor" type="CSGBox3D" parent="traincart"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -0.0578706, 3.80601, -0.376295)
+use_collision = true
+size = Vector3(17.1967, 1, 4.18542)
+material = SubResource("StandardMaterial3D_w2esn")
+
+[node name="background" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49426, 4.391, -11.162)
+
+[node name="tree1" type="Sprite3D" parent="background"]
+texture = ExtResource("3_mom0p")
+
+[node name="tree2" type="Sprite3D" parent="background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1679, 0, -10.1435)
+texture = ExtResource("3_mom0p")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6405, 4.33201, -51.7789)
+size = Vector3(10.48, 33.771, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="background/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.781, -16.0173, 7.30094)
+visible = false
+size = Vector3(299.666, 16.325, 95.5898)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="background/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73581, 8.72301, 36.1667)
+size = Vector3(10.48, 33.771, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="background/CSGBox3D2/CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.781, -16.0173, 7.30094)
+visible = false
+size = Vector3(299.666, 16.325, 95.5898)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0876, 6.21922, -21.1781)
+size = Vector3(10.48, 37.5454, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="background/CSGBox3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.0649, 17.9399, -20.189)
+size = Vector3(35.9231, 112.142, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="background/CSGBox3D4/CSGBox3D4"]
+transform = Transform3D(0.999962, 0, 0.00876144, 0, 1, 0, -0.00876144, 0, 0.999962, 110.087, -16.1358, -20.189)
+size = Vector3(10.48, 98.4587, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6894, 0.775064, -25.4011)
+size = Vector3(10.48, 26.6571, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4196, 5.1796, -32.2629)
+size = Vector3(10.48, 35.4662, 1)
