@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj441x8vvx3v1"]
+
+[ext_resource type="PackedScene" uid="uid://dn85o8x4oojy4" path="res://Project/00_scenes/Objects/lantern.tscn" id="1_5s3tp"]
+
+[node name="lantern_group" type="Node3D"]
+
+[node name="lantern" parent="." instance=ExtResource("1_5s3tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2372, 0)
+
+[node name="lantern2" parent="." instance=ExtResource("1_5s3tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1365, 3.2372, 0)
+
+[node name="lantern3" parent="." instance=ExtResource("1_5s3tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8013, 3.2372, 0)
+
+[node name="lantern4" parent="." instance=ExtResource("1_5s3tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.9715, 3.2372, 0)
+
+[node name="lantern5" parent="." instance=ExtResource("1_5s3tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.835, 3.2372, 0)
+
+[node name="lantern6" parent="." instance=ExtResource("1_5s3tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.4237, 3.2372, 0)
+
+[node name="lantern7" parent="." instance=ExtResource("1_5s3tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.7377, 3.2372, 0)
+
+[node name="lantern8" parent="." instance=ExtResource("1_5s3tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.8742, 3.2372, 0)
+
+[node name="lantern9" parent="." instance=ExtResource("1_5s3tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.9364, 3.2372, 0)
+
+[node name="lantern10" parent="." instance=ExtResource("1_5s3tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.7662, 3.2372, 0)
+
+[node name="lantern11" parent="." instance=ExtResource("1_5s3tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.9027, 3.2372, 0)
+
+[node name="lantern12" parent="." instance=ExtResource("1_5s3tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9649, 3.2372, 0)

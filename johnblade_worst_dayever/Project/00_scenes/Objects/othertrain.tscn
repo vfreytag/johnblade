@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://byo8pqmgnf1no"]
+
+[ext_resource type="Texture2D" uid="uid://uhj5udty6dwv" path="res://Project/20_assets/20_sprite/train_exterior.png" id="3_h5cpg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_alyng"]
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 8.8
+
+[node name="Node3D" type="Node3D"]
+
+[node name="wall2" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, -6.60024e-15, 1.50996e-07, -1.50996e-07, 4.37114e-08, -1, 0, -1, -4.37114e-08, 1.59161, 1.11681, 2.36348)
+use_collision = true
+size = Vector3(17.5874, 0.187988, 2.82626)
+material = SubResource("StandardMaterial3D_alyng")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2.635, 0, 0, 0, 2.635, 0, 0, 0, 2.635, 1.33265, 1.13665, 2.51849)
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 3
+texture = ExtResource("3_h5cpg")
