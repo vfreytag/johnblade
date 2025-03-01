@@ -195,3 +195,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.281132, -0.34259, 0.355957
 operation = 2
 size = Vector3(1, 1.05408, 2.75488)
 material = ExtResource("2_32khn")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1.21951, 0, 0, 0, -1.20099, 0.211766, 0, -0.211766, -1.20099, 6.92736, 2.79455, -2.38054)
+light_color = Color(1, 0.2, 0.2, 1)
+light_energy = 7.788
+light_indirect_energy = 4.919
+light_volumetric_fog_energy = 6.495
+shadow_enabled = true
+spot_range = 5.76153
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(1.21951, 0, 0, 0, -1.20099, 0.211766, 0, -0.211766, -1.20099, -1.16046, 2.79455, -2.38054)
+light_color = Color(1, 0.2, 0.2, 1)
+light_energy = 7.843
+light_indirect_energy = 3.228
+light_volumetric_fog_energy = 7.141
+shadow_enabled = true
+spot_range = 5.76153
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(1.21951, 0, 0, 0, -1.20099, 0.211766, 0, -0.211766, -1.20099, 2.40267, 2.45441, -2.64754)
+light_color = Color(1, 0.2, 0.2, 1)
+light_energy = 7.788
+light_volumetric_fog_energy = 1.14
+shadow_enabled = true
+spot_range = 5.76153

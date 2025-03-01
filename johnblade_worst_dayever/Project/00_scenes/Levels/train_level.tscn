@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b44yp802ugi1x"]
+[gd_scene load_steps=25 format=3 uid="uid://b44yp802ugi1x"]
 
 [ext_resource type="PackedScene" uid="uid://bc2y2isjaowar" path="res://Project/00_scenes/Player/Player.tscn" id="2_d1w37"]
 [ext_resource type="PackedScene" uid="uid://dvk6j7qxfnqow" path="res://Project/00_scenes/Objects/traincart.tscn" id="2_jx81s"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bfa28qfmu6uvy" path="res://Project/00_scenes/Objects/traincart_nodoor.tscn" id="7_3yvme"]
 [ext_resource type="PackedScene" uid="uid://bsoig6ypuwj1j" path="res://Project/00_scenes/Objects/traincart_captain.tscn" id="9_n6lh7"]
 [ext_resource type="PackedScene" uid="uid://da4suhoe3u8kc" path="res://Project/00_scenes/Objects/traincart_emd.tscn" id="10_qk8un"]
+
+[sub_resource type="Theme" id="Theme_rsfsj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_75u4i"]
 
@@ -125,6 +127,17 @@ _data = {
 
 [node name="Game" type="Node3D"]
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="UI"]
+
+[node name="Panel" type="Panel" parent="UI"]
+offset_left = -8.0
+offset_top = -4.0
+offset_right = 1154.0
+offset_bottom = 95.0
+theme = SubResource("Theme_rsfsj")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_iw6k5")
 
@@ -171,25 +184,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.442, 0, -0.0143051)
 [node name="lantern_group" parent="." instance=ExtResource("4_op4yq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.237, -0.735367, -8.538)
 
-[node name="traincart" parent="." instance=ExtResource("2_jx81s")]
+[node name="Node3D2" type="Node3D" parent="."]
 transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, -0.740337, 2.59401, -0.0251032)
 
-[node name="traincart2" parent="." instance=ExtResource("2_jx81s")]
-transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, 32.2196, 2.59401, -0.0251032)
+[node name="traincart" parent="Node3D2" instance=ExtResource("2_jx81s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="traincart4" parent="." instance=ExtResource("6_r0ecr")]
-transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, 10.342, 2.594, -0.025)
+[node name="traincart2" parent="Node3D2" instance=ExtResource("2_jx81s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.195, 0, 0)
+
+[node name="traincart4" parent="Node3D2" instance=ExtResource("6_r0ecr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.515, 7.39098e-06, -0.000125812)
+
+[node name="traincart3" parent="Node3D2" instance=ExtResource("7_3yvme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.2044, 7.39098e-06, -0.000125812)
+
+[node name="traincart5" parent="Node3D2" instance=ExtResource("9_n6lh7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4207, 7.39098e-06, -0.000125812)
+
+[node name="traincart6" parent="Node3D2" instance=ExtResource("10_qk8un")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.8198, -0.00199628, -0.0149725)
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150.07, -227.305)
 pixel_size = 1.0
 texture = ExtResource("6_jyyt0")
-
-[node name="traincart3" parent="." instance=ExtResource("7_3yvme")]
-transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, 21.5673, 2.594, -0.025)
-
-[node name="traincart5" parent="." instance=ExtResource("9_n6lh7")]
-transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, -11.7453, 2.594, -0.025)
-
-[node name="traincart6" parent="." instance=ExtResource("10_qk8un")]
-transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, 43.3919, 2.59564, -0.0128257)
