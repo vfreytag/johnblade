@@ -202,4 +202,4 @@ pixel_size = 1.0
 texture = ExtResource("6_jyyt0")
 
 [node name="Enemy1" parent="." instance=ExtResource("12_ls5ur")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4195, 0.58375, -0.241411)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4195, 0.999893, -0.241411)
