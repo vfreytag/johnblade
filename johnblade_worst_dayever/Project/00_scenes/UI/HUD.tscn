@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckjjhqjgx3mbq"]
+[gd_scene load_steps=12 format=3 uid="uid://ckjjhqjgx3mbq"]
 
 [ext_resource type="Texture2D" uid="uid://dwgnkmg3blogg" path="res://Project/20_assets/20_sprite/health_empty_light.svg" id="1_yjdhi"]
 [ext_resource type="Texture2D" uid="uid://rqjdcauavtdt" path="res://Project/20_assets/20_sprite/health_full.svg" id="2_64gxp"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://vmmurwj45l6i" path="res://Project/20_assets/20_sprite/blood_empty_light.svg" id="4_i8a4u"]
 [ext_resource type="Texture2D" uid="uid://cs8mxvveunewo" path="res://Project/20_assets/20_sprite/blood_full_light.svg" id="5_6yhkq"]
 [ext_resource type="Texture2D" uid="uid://dhcusnaee3ell" path="res://Project/20_assets/20_sprite/bossbar_full.svg" id="5_25r54"]
+[ext_resource type="Texture2D" uid="uid://dge3su2jdb6tc" path="res://Project/20_assets/20_sprite/coffee_empty.png" id="6_0pbta"]
+[ext_resource type="Texture2D" uid="uid://d4evfh3p0lcr0" path="res://Project/20_assets/20_sprite/coffee.png" id="7_qfsj3"]
+[ext_resource type="Texture2D" uid="uid://dnkqy46jnunve" path="res://Project/20_assets/20_sprite/ciggy_empty.png" id="8_3sula"]
+[ext_resource type="Texture2D" uid="uid://b6kwjol3es44g" path="res://Project/20_assets/20_sprite/ciggy full.png" id="9_kxe3g"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 follow_viewport_enabled = true
@@ -29,14 +33,24 @@ theme_override_font_sizes/font_size = 20
 text = "GRADULOUS THE BICTH FUCKER"
 
 [node name="Panel" type="Panel" parent="Control"]
-modulate = Color(0, 0, 0, 0.470588)
+modulate = Color(0, 0, 0, 0.196078)
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = -144.0
-offset_top = 13.0
-offset_right = 201.0
-offset_bottom = 193.0
-rotation = -0.541052
+offset_left = -76.0
+offset_top = -10.0
+offset_right = 490.0
+offset_bottom = 170.0
+rotation = -0.349066
+
+[node name="Panel2" type="Panel" parent="Control"]
+modulate = Color(0, 0, 0, 0.196078)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -19.0
+offset_top = 483.0
+offset_right = 679.0
+offset_bottom = 735.0
+rotation = 0.349066
 
 [node name="health" type="TextureProgressBar" parent="Control"]
 texture_filter = 1
@@ -44,8 +58,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0078125
 anchor_top = 0.00617284
-anchor_right = 6.59247
-anchor_bottom = 2.64358
+anchor_right = 0.481354
+anchor_bottom = 0.0602469
 offset_right = 1727.48
 offset_bottom = 110.96
 scale = Vector2(0.2, 0.2)
@@ -72,6 +86,28 @@ fill_mode = 1
 texture_under = ExtResource("4_ck5hi")
 texture_progress = ExtResource("5_25r54")
 metadata/_edit_use_anchors_ = true
+
+[node name="coffee" type="TextureProgressBar" parent="Control"]
+offset_left = 10.0
+offset_top = 67.0
+offset_right = 266.0
+offset_bottom = 323.0
+scale = Vector2(0.15, 0.15)
+value = 50.0
+fill_mode = 3
+texture_under = ExtResource("6_0pbta")
+texture_progress = ExtResource("7_qfsj3")
+
+[node name="ciggy" type="TextureProgressBar" parent="Control"]
+offset_left = 48.0
+offset_top = 67.0
+offset_right = 304.0
+offset_bottom = 323.0
+scale = Vector2(0.15, 0.15)
+value = 65.0
+fill_mode = 3
+texture_under = ExtResource("8_3sula")
+texture_progress = ExtResource("9_kxe3g")
 
 [node name="bloode" type="TextureProgressBar" parent="Control"]
 texture_filter = 1
