@@ -9,6 +9,7 @@ signal hit
 
 func _init():
 	print(Global.jhealth)
+	Global.jhealth = 100
 
 func juan_hit():
 	print ("ow! my health is now at", Global.jhealth)
@@ -16,8 +17,7 @@ func juan_hit():
 	
 func _process(delta):
 	if Global.jhealth == 0:
-		get_tree().reload_current_scene()
-
+		get_tree().reload_current_scene() #DEATH
 
 func _on_body_entered(body):
 	hide()
