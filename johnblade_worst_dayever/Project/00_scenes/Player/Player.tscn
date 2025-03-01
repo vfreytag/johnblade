@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bc2y2isjaowar"]
+[gd_scene load_steps=16 format=3 uid="uid://bc2y2isjaowar"]
 
 [ext_resource type="Texture2D" uid="uid://b54o3g12hd5eh" path="res://Project/20_assets/20_sprite/John_Sprite.png" id="1_ntmv5"]
-[ext_resource type="Script" path="res://Project/10_scripts/johnmovement.gd" id="1_vyl7l"]
+[ext_resource type="Script" path="res://Project/10_scripts/player.gd" id="1_qj0td"]
 [ext_resource type="Texture2D" uid="uid://coq3d0i8ksw53" path="res://Project/20_assets/20_sprite/John_Crouch.png" id="2_evp6g"]
 [ext_resource type="Texture2D" uid="uid://dtnraj81aqmhs" path="res://Project/20_assets/20_sprite/John_dash.png" id="3_can2k"]
 [ext_resource type="Texture2D" uid="uid://cpanw7cxxj8le" path="res://Project/20_assets/20_sprite/John_dj.png" id="4_yrr7n"]
+[ext_resource type="Texture2D" uid="uid://bkqqqn77ygliw" path="res://Project/20_assets/20_sprite/texture.png" id="5_qve51"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxu5h"]
 atlas = ExtResource("2_evp6g")
@@ -17,6 +18,18 @@ region = Rect2(0, 0, 62, 112)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6j3oq"]
 atlas = ExtResource("4_yrr7n")
 region = Rect2(0, 0, 62, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlpv8"]
+atlas = ExtResource("5_qve51")
+region = Rect2(0, 0, 56, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nka6n"]
+atlas = ExtResource("5_qve51")
+region = Rect2(0, 107, 56, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywr4k"]
+atlas = ExtResource("5_qve51")
+region = Rect2(0, 214, 56, 107)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwrie"]
 atlas = ExtResource("1_ntmv5")
@@ -49,6 +62,20 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_rlpv8")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_nka6n")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ywr4k")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gwrie")
 }],
@@ -58,18 +85,19 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l32fc"]
-radius = 0.1
+radius = 0.2
 height = 1.0
 
 [node name="John" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53331, 0)
-script = ExtResource("1_vyl7l")
+script = ExtResource("1_qj0td")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0946717, 0)
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_o3j07")
-animation = &"stand"
+animation = &"run"
+frame_progress = 0.614981
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0110781, -0.186261, -0.0107727)

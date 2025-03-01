@@ -55,11 +55,16 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("Walk_left", "Walk_right", "Jump", "ui_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
+	
+	
 	#handles sprite flip
 	if input_dir.x < 0:
 		animated_sprite_3d.flip_h = false
 	elif input_dir.x > 0:
 		animated_sprite_3d.flip_h = true
+		
+	if input_dir.x == 0 and crouching == false:
+		animated_sprite_3d.play("stand")
 	
 	#handles velocity
 	if direction:
@@ -68,12 +73,14 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_3d.play("dash")
 		elif crouching:
 			velocity.x = direction.x * CROUCH_SPEED
+			#animated_sprite_3d.play("crouch")
 		else:
 			velocity.x = direction.x * SPEED
-			animated_sprite_3d.play("stand")
+			animated_sprite_3d.play("run")
 		#velocity.z = direction.z * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		#animated_sprite_3d.play("stand")
 		#velocity.z = move_toward(velocity.z, 0, SPEED)
 
 
