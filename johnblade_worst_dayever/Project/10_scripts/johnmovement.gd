@@ -1,11 +1,11 @@
 extends CharacterBody3D
 
 
-const SPEED = 5
+const SPEED = 7
 const JUMP_VELOCITY = 6
 const DOUBLE_JUMP_VELOCITY = 8
 
-const DASH_SPEED = 15
+const DASH_SPEED = 20
 const CROUCH_SPEED = 3
 
 var dashing = false
@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 		
 	elif has_d_jumped == false and Input.is_action_just_pressed("Jump"):
 		velocity.y = DOUBLE_JUMP_VELOCITY
+		animated_sprite_3d.play("double_jump")
 		has_d_jumped = true
 		
 	# Handle double-jump.
@@ -64,10 +65,12 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		if dashing:
 			velocity.x = direction.x * DASH_SPEED
+			animated_sprite_3d.play("dash")
 		elif crouching:
 			velocity.x = direction.x * CROUCH_SPEED
 		else:
 			velocity.x = direction.x * SPEED
+			animated_sprite_3d.play("stand")
 		#velocity.z = direction.z * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
