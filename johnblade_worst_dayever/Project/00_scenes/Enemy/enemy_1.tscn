@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://kshnpgb8yw6g"]
+[gd_scene load_steps=27 format=3 uid="uid://kshnpgb8yw6g"]
 
 [ext_resource type="Script" path="res://Project/10_scripts/basicenemy.gd" id="1_e1drp"]
 [ext_resource type="Texture2D" uid="uid://c4eae056hhmfe" path="res://Project/20_assets/20_sprite/icon.svg" id="1_ge0b5"]
@@ -126,7 +126,39 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_1cw47"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t2p4g"]
-size = Vector3(1.20007, 1.85269, 1)
+size = Vector3(1.1146, 0.260994, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fbq4x"]
+size = Vector2(100, 30)
+
+[sub_resource type="AnimationRootNode" id="AnimationRootNode_41ima"]
+
+[sub_resource type="Animation" id="Animation_hvhqb"]
+resource_name = "stab"
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Area3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 0.3, 0, 0.6, 1, 0, 0.3, 0, 0.966667, 1, 1, 0.3, 0)
+
+[sub_resource type="Animation" id="Animation_ifcb4"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Area3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ae2vu"]
+_data = {
+"RESET": SubResource("Animation_ifcb4"),
+"stab": SubResource("Animation_hvhqb")
+}
 
 [node name="Enemy1" type="Node3D"]
 script = ExtResource("1_e1drp")
@@ -148,8 +180,21 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114555, 0.356096, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.981684, 0.0542125, 0)
 shape = SubResource("BoxShape3D_t2p4g")
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95683, 0, 0.0129055)
+texture = SubResource("PlaceholderTexture2D_fbq4x")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationRootNode_41ima")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
+libraries = {
+"": SubResource("AnimationLibrary_ae2vu")
+}
+autoplay = "stab"
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]

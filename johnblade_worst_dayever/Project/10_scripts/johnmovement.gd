@@ -89,12 +89,14 @@ func _physics_process(delta: float) -> void:
 		print("crouching")
 		crouching = true
 		animated_sprite_3d.play("crouch")
-		print (collision_shape_3d)
+		$CollisionShape3D.shape.height = Global.crouchheight
+		#print (collision_shape_3d)
 
 		
 	elif Input.is_action_just_pressed("Crouch") and crouching == true:
 		crouching = false
 		animated_sprite_3d.play("stand")
+		$CollisionShape3D.shape.height = Global.standheight
 		print("standing")
 
 	move_and_slide()

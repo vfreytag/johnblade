@@ -86,7 +86,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l32fc"]
 radius = 0.2
-height = 1.0
+height = 1.2
 
 [node name="John" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53331, 0)
@@ -99,7 +99,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0946717, 0)
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_o3j07")
 animation = &"run"
-frame_progress = 0.822475
+frame_progress = 0.782258
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0110781, -0.186261, -0.0107727)
