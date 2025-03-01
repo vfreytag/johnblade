@@ -39,15 +39,16 @@ offset_bottom = 193.0
 rotation = -0.541052
 
 [node name="health" type="TextureProgressBar" parent="Control"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0078125
 anchor_top = 0.00617284
-anchor_right = 0.481354
-anchor_bottom = 0.0602469
+anchor_right = 6.59247
+anchor_bottom = 2.64358
 offset_right = 1727.48
 offset_bottom = 110.96
-scale = Vector2(0.24, 0.24)
+scale = Vector2(0.2, 0.2)
 value = 50.0
 texture_under = ExtResource("1_yjdhi")
 texture_progress = ExtResource("2_64gxp")
@@ -73,6 +74,7 @@ texture_progress = ExtResource("5_25r54")
 metadata/_edit_use_anchors_ = true
 
 [node name="bloode" type="TextureProgressBar" parent="Control"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.00781249
