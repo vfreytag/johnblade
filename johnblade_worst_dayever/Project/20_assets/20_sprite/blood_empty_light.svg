@@ -3,11 +3,11 @@
 
 <svg
    width="402.77246mm"
-   height="25.791868mm"
-   viewBox="0 0 402.77246 25.791868"
+   height="26.340458mm"
+   viewBox="0 0 402.77246 26.340458"
    version="1.1"
    id="svg1"
-   inkscape:export-filename="health_full.svg"
+   inkscape:export-filename="blood_empty_light.svg"
    inkscape:export-xdpi="22.151253"
    inkscape:export-ydpi="22.151253"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -86,10 +86,10 @@
        sodipodi:nodetypes="cccc" />
     <path
        style="display:inline;fill:#ee8299;fill-opacity:0.362805;fill-rule:nonzero;stroke:none;stroke-width:0.413234"
-       d="M 24.26309,7.0195185 3.4771177,39.583192 781.65069,9.1568281 Z"
+       d="M 4.1250463,6.3268945 3.4771177,39.583192 781.65069,9.1568281 Z"
        id="path34-4"
        inkscape:path-effect="#path-effect34-8"
-       inkscape:original-d="M 24.26309,7.0195185 3.4771177,39.583192 781.65069,9.1568281 Z"
+       inkscape:original-d="M 4.1250463,6.3268945 3.4771177,39.583192 781.65069,9.1568281 Z"
        inkscape:linked-fill="path35"
        transform="matrix(0.51758692,0,0,-0.79204421,191.37983,38.582803)"
        sodipodi:nodetypes="cccc" />

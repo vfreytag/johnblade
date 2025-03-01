@@ -8,8 +8,8 @@
    version="1.1"
    id="svg1"
    inkscape:export-filename="blood_full_light.svg"
-   inkscape:export-xdpi="22.151253"
-   inkscape:export-ydpi="22.151253"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -78,18 +78,18 @@
      transform="translate(0.44259721,-1.9104393)">
     <path
        style="display:inline;fill:#c200c7;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.264583"
-       d="M 13.794548,1.9104392 -0.44259724,40.483625 600.83951,2.2631959 Z"
+       d="M -0.19446748,1.9104392 -0.44259724,40.483625 600.83951,2.2631959 Z"
        id="path34"
        inkscape:path-effect="#path-effect34"
-       inkscape:original-d="M 13.794548,1.9104392 -0.44259724,40.483625 600.83951,2.2631959 Z"
+       inkscape:original-d="M -0.19446748,1.9104392 -0.44259724,40.483625 600.83951,2.2631959 Z"
        inkscape:linked-fill="path35"
        sodipodi:nodetypes="cccc" />
     <path
-       style="display:none;fill:#b90027;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.413234"
-       d="M 24.26309,7.0195185 3.4771177,39.583192 781.65069,9.1568281 Z"
+       style="display:none;fill:#dd002f;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.413234"
+       d="M 4.1250463,6.3268945 3.4771177,39.583192 781.65069,9.1568281 Z"
        id="path34-4"
        inkscape:path-effect="#path-effect34-8"
-       inkscape:original-d="M 24.26309,7.0195185 3.4771177,39.583192 781.65069,9.1568281 Z"
+       inkscape:original-d="M 4.1250463,6.3268945 3.4771177,39.583192 781.65069,9.1568281 Z"
        inkscape:linked-fill="path35"
        transform="matrix(0.51758692,0,0,-0.79204421,191.37983,38.582803)"
        sodipodi:nodetypes="cccc" />
