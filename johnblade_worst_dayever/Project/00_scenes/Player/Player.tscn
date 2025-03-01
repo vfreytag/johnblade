@@ -84,9 +84,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l32fc"]
-radius = 0.2
-height = 1.2
+[sub_resource type="BoxShape3D" id="BoxShape3D_1iwm0"]
+size = Vector3(0.575, 1.1, 0.265)
 
 [node name="John" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53331, 0)
@@ -98,12 +97,12 @@ script = ExtResource("1_qj0td")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0946717, 0)
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_o3j07")
-animation = &"run"
-frame_progress = 0.782258
+animation = &"stand"
+frame_progress = 0.727482
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0110781, -0.186261, -0.0107727)
-shape = SubResource("CapsuleShape3D_l32fc")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0110781, -0.0950108, -0.0107727)
+shape = SubResource("BoxShape3D_1iwm0")
 
 [node name="Dash_Timer" type="Timer" parent="."]
 wait_time = 0.2
