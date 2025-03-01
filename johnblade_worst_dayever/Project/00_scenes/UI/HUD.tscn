@@ -1,16 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckjjhqjgx3mbq"]
+[gd_scene load_steps=13 format=3 uid="uid://ckjjhqjgx3mbq"]
 
-[ext_resource type="Texture2D" uid="uid://dwgnkmg3blogg" path="res://Project/20_assets/20_sprite/health_empty_light.svg" id="1_yjdhi"]
-[ext_resource type="Texture2D" uid="uid://rqjdcauavtdt" path="res://Project/20_assets/20_sprite/health_full.svg" id="2_64gxp"]
+[ext_resource type="Texture2D" uid="uid://b15ds2nddrxff" path="res://Project/20_assets/20_sprite/EmptyHealth-1.png" id="1_7227t"]
+[ext_resource type="Texture2D" uid="uid://ctlbl6nhe38fy" path="res://Project/20_assets/20_sprite/FullHealth-1.png" id="1_x7d0a"]
 [ext_resource type="Script" path="res://Project/10_scripts/health_bar.gd" id="3_756eu"]
 [ext_resource type="Texture2D" uid="uid://c4b76sft57gfk" path="res://Project/20_assets/20_sprite/bossbar_empty.svg" id="4_ck5hi"]
-[ext_resource type="Texture2D" uid="uid://vmmurwj45l6i" path="res://Project/20_assets/20_sprite/blood_empty_light.svg" id="4_i8a4u"]
-[ext_resource type="Texture2D" uid="uid://cs8mxvveunewo" path="res://Project/20_assets/20_sprite/blood_full_light.svg" id="5_6yhkq"]
+[ext_resource type="Texture2D" uid="uid://siqlilfmxe8p" path="res://Project/20_assets/20_sprite/EmptyBloode-1.png" id="4_jr1ht"]
 [ext_resource type="Texture2D" uid="uid://dhcusnaee3ell" path="res://Project/20_assets/20_sprite/bossbar_full.svg" id="5_25r54"]
+[ext_resource type="Texture2D" uid="uid://d3np72dijbm4i" path="res://Project/20_assets/20_sprite/FullBloode-1.png" id="5_f57l8"]
 [ext_resource type="Texture2D" uid="uid://dge3su2jdb6tc" path="res://Project/20_assets/20_sprite/coffee_empty.png" id="6_0pbta"]
 [ext_resource type="Texture2D" uid="uid://d4evfh3p0lcr0" path="res://Project/20_assets/20_sprite/coffee.png" id="7_qfsj3"]
 [ext_resource type="Texture2D" uid="uid://dnkqy46jnunve" path="res://Project/20_assets/20_sprite/ciggy_empty.png" id="8_3sula"]
 [ext_resource type="Texture2D" uid="uid://b6kwjol3es44g" path="res://Project/20_assets/20_sprite/ciggy full.png" id="9_kxe3g"]
+[ext_resource type="FontFile" uid="uid://cpe4wpkxm2nvb" path="res://Project/20_assets/40_fonts/Stabby Bold.ttf" id="10_ukovi"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 follow_viewport_enabled = true
@@ -23,51 +24,120 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Panel" type="Panel" parent="Control"]
+modulate = Color(0, 0, 0, 0.196078)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -77.0
+offset_top = -48.0
+offset_right = 644.0
+offset_bottom = 132.0
+rotation = -0.174533
+
+[node name="Panel2" type="Panel" parent="Control"]
+modulate = Color(0, 0, 0, 0.196078)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -50.0
+offset_top = 549.0
+offset_right = 648.0
+offset_bottom = 801.0
+rotation = 0.174533
+
+[node name="Panel3" type="Panel" parent="Control"]
+modulate = Color(0, 0, 0, 0.196078)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 552.0
+offset_top = 663.0
+offset_right = 1250.0
+offset_bottom = 915.0
+rotation = -0.174533
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 180.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="health" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+value = 50.0
+texture_under = ExtResource("1_7227t")
+texture_progress = ExtResource("1_x7d0a")
+script = ExtResource("3_756eu")
+metadata/_edit_use_anchors_ = true
+
+[node name="bloode" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+value = 50.0
+texture_under = ExtResource("4_jr1ht")
+texture_progress = ExtResource("5_f57l8")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="coffee" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+value = 50.0
+fill_mode = 3
+texture_under = ExtResource("6_0pbta")
+texture_progress = ExtResource("7_qfsj3")
+
+[node name="ciggy" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+value = 65.0
+fill_mode = 3
+texture_under = ExtResource("8_3sula")
+texture_progress = ExtResource("9_kxe3g")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="Control/MarginContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.619608, 0.0901961, 0.188235, 1)
+theme_override_fonts/font = ExtResource("10_ukovi")
+theme_override_font_sizes/font_size = 32
+text = "- £999999987.97"
+
 [node name="Label" type="Label" parent="Control"]
 visible = false
+layout_mode = 0
 offset_left = 829.0
 offset_top = 79.0
 offset_right = 1141.0
 offset_bottom = 121.0
 theme_override_font_sizes/font_size = 20
 text = "GRADULOUS THE BICTH FUCKER"
-
-[node name="Panel" type="Panel" parent="Control"]
-modulate = Color(0, 0, 0, 0.196078)
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -76.0
-offset_top = -10.0
-offset_right = 490.0
-offset_bottom = 170.0
-rotation = -0.349066
-
-[node name="Panel2" type="Panel" parent="Control"]
-modulate = Color(0, 0, 0, 0.196078)
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -19.0
-offset_top = 483.0
-offset_right = 679.0
-offset_bottom = 735.0
-rotation = 0.349066
-
-[node name="health" type="TextureProgressBar" parent="Control"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0078125
-anchor_top = 0.00617284
-anchor_right = 0.481354
-anchor_bottom = 0.0602469
-offset_right = 1727.48
-offset_bottom = 110.96
-scale = Vector2(0.2, 0.2)
-value = 50.0
-texture_under = ExtResource("1_yjdhi")
-texture_progress = ExtResource("2_64gxp")
-script = ExtResource("3_756eu")
-metadata/_edit_use_anchors_ = true
 
 [node name="bossbar" type="TextureProgressBar" parent="Control"]
 visible = false
@@ -87,43 +157,4 @@ texture_under = ExtResource("4_ck5hi")
 texture_progress = ExtResource("5_25r54")
 metadata/_edit_use_anchors_ = true
 
-[node name="coffee" type="TextureProgressBar" parent="Control"]
-offset_left = 10.0
-offset_top = 67.0
-offset_right = 266.0
-offset_bottom = 323.0
-scale = Vector2(0.15, 0.15)
-value = 50.0
-fill_mode = 3
-texture_under = ExtResource("6_0pbta")
-texture_progress = ExtResource("7_qfsj3")
-
-[node name="ciggy" type="TextureProgressBar" parent="Control"]
-offset_left = 48.0
-offset_top = 67.0
-offset_right = 304.0
-offset_bottom = 323.0
-scale = Vector2(0.15, 0.15)
-value = 65.0
-fill_mode = 3
-texture_under = ExtResource("8_3sula")
-texture_progress = ExtResource("9_kxe3g")
-
-[node name="bloode" type="TextureProgressBar" parent="Control"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00781249
-anchor_top = 0.0648148
-anchor_right = 0.272049
-anchor_bottom = 0.095679
-offset_right = 1217.6
-offset_bottom = 80.0
-grow_horizontal = 2
-scale = Vector2(0.2, 0.2)
-value = 50.0
-texture_under = ExtResource("4_i8a4u")
-texture_progress = ExtResource("5_6yhkq")
-metadata/_edit_use_anchors_ = true
-
-[connection signal="value_changed" from="Control/health" to="Control/health" method="_on_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/health" to="Control/MarginContainer/VBoxContainer/health" method="_on_value_changed"]

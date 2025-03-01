@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d0oa2140m8ox3"]
+
+[node name="ColorRect" type="ColorRect"]
+offset_left = 63.0
+offset_top = 550.0
+offset_right = 103.0
+offset_bottom = 590.0
+scale = Vector2(1.2, 1.2)
+size_flags_stretch_ratio = 0.0
+color = Color(1, 0.576471, 1, 0.345098)
