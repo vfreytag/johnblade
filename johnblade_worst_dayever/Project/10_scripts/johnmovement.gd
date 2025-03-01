@@ -15,7 +15,7 @@ var jumped = false
 var has_d_jumped = false
 
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
-@onready var collision_shape_3d: int = $CollisionShape3D.shape.height
+@onready var collision_shape_3d: Vector3 = $CollisionShape3D.shape.size
 
 
 
@@ -89,14 +89,14 @@ func _physics_process(delta: float) -> void:
 		print("crouching")
 		crouching = true
 		animated_sprite_3d.play("crouch")
-		$CollisionShape3D.shape.height = Global.crouchheight
+		$CollisionShape3D.shape.size = Vector3(Global.jx, Global.crouchheight, Global.jz)
 		#print (collision_shape_3d)
 
 		
 	elif Input.is_action_just_pressed("Crouch") and crouching == true:
 		crouching = false
 		animated_sprite_3d.play("stand")
-		$CollisionShape3D.shape.height = Global.standheight
+		$CollisionShape3D.shape.size = Vector3(Global.jx, Global.standheight, Global.jz)
 		print("standing")
 
 	move_and_slide()
