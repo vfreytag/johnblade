@@ -1,16 +1,17 @@
-[gd_scene load_steps=25 format=3 uid="uid://b44yp802ugi1x"]
+[gd_scene load_steps=26 format=3 uid="uid://b44yp802ugi1x"]
 
 [ext_resource type="PackedScene" uid="uid://ckjjhqjgx3mbq" path="res://Project/00_scenes/UI/HUD.tscn" id="1_2odeh"]
 [ext_resource type="PackedScene" uid="uid://bc2y2isjaowar" path="res://Project/00_scenes/Player/Player.tscn" id="2_d1w37"]
 [ext_resource type="PackedScene" uid="uid://dvk6j7qxfnqow" path="res://Project/00_scenes/Objects/traincart.tscn" id="2_jx81s"]
-[ext_resource type="PackedScene" path="res://Project/00_scenes/Objects/othertrain.tscn" id="4_47xr8"]
+[ext_resource type="PackedScene" uid="uid://byo8pqmgnf1no" path="res://Project/00_scenes/Objects/othertrain.tscn" id="4_47xr8"]
 [ext_resource type="Animation" uid="uid://cottwr0q8gd8d" path="res://Project/20_assets/21_animation/train_passby.res" id="4_dp34h"]
-[ext_resource type="PackedScene" path="res://Project/00_scenes/Objects/lantern_group.tscn" id="4_op4yq"]
+[ext_resource type="PackedScene" uid="uid://dj441x8vvx3v1" path="res://Project/00_scenes/Objects/lantern_group.tscn" id="4_op4yq"]
 [ext_resource type="Texture2D" uid="uid://b3hylie5rdp6f" path="res://Project/20_assets/20_sprite/vizx.png" id="6_jyyt0"]
 [ext_resource type="PackedScene" uid="uid://mx0hfk6pvimn" path="res://Project/00_scenes/Objects/traincart_toilet.tscn" id="6_r0ecr"]
 [ext_resource type="PackedScene" uid="uid://bfa28qfmu6uvy" path="res://Project/00_scenes/Objects/traincart_nodoor.tscn" id="7_3yvme"]
 [ext_resource type="PackedScene" uid="uid://bsoig6ypuwj1j" path="res://Project/00_scenes/Objects/traincart_captain.tscn" id="9_n6lh7"]
 [ext_resource type="PackedScene" uid="uid://da4suhoe3u8kc" path="res://Project/00_scenes/Objects/traincart_emd.tscn" id="10_qk8un"]
+[ext_resource type="PackedScene" uid="uid://kshnpgb8yw6g" path="res://Project/00_scenes/Enemy/enemy_1.tscn" id="12_ls5ur"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_75u4i"]
 
@@ -199,3 +200,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.8198, -0.00199628, -0.0149
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150.07, -227.305)
 pixel_size = 1.0
 texture = ExtResource("6_jyyt0")
+
+[node name="Enemy1" parent="." instance=ExtResource("12_ls5ur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4195, 0.58375, -0.241411)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://kshnpgb8yw6g"]
+[gd_scene load_steps=22 format=3 uid="uid://kshnpgb8yw6g"]
 
+[ext_resource type="Script" path="res://Project/10_scripts/basicenemy.gd" id="1_e1drp"]
 [ext_resource type="Texture2D" uid="uid://c4eae056hhmfe" path="res://Project/20_assets/20_sprite/icon.svg" id="1_ge0b5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wruji"]
@@ -124,7 +125,11 @@ animations = [{
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1cw47"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2p4g"]
+size = Vector3(1.20007, 1.85269, 1)
+
 [node name="Enemy1" type="Node3D"]
+script = ExtResource("1_e1drp")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 
@@ -135,3 +140,13 @@ frame_progress = 0.594318
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("BoxShape3D_1cw47")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="RigidBody3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114555, 0.356096, 0)
+shape = SubResource("BoxShape3D_t2p4g")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
