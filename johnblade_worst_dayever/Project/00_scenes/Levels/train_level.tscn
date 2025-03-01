@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b44yp802ugi1x"]
+[gd_scene load_steps=24 format=3 uid="uid://b44yp802ugi1x"]
 
 [ext_resource type="PackedScene" uid="uid://bc2y2isjaowar" path="res://Project/00_scenes/Player/Player.tscn" id="2_d1w37"]
 [ext_resource type="PackedScene" uid="uid://dvk6j7qxfnqow" path="res://Project/00_scenes/Objects/traincart.tscn" id="2_jx81s"]
@@ -6,6 +6,10 @@
 [ext_resource type="Animation" uid="uid://cottwr0q8gd8d" path="res://Project/20_assets/21_animation/train_passby.res" id="4_dp34h"]
 [ext_resource type="PackedScene" uid="uid://dj441x8vvx3v1" path="res://Project/00_scenes/Objects/lantern_group.tscn" id="4_op4yq"]
 [ext_resource type="Texture2D" uid="uid://b3hylie5rdp6f" path="res://Project/20_assets/20_sprite/vizx.png" id="6_jyyt0"]
+[ext_resource type="PackedScene" uid="uid://mx0hfk6pvimn" path="res://Project/00_scenes/Objects/traincart_toilet.tscn" id="6_r0ecr"]
+[ext_resource type="PackedScene" uid="uid://bfa28qfmu6uvy" path="res://Project/00_scenes/Objects/traincart_nodoor.tscn" id="7_3yvme"]
+[ext_resource type="PackedScene" uid="uid://bsoig6ypuwj1j" path="res://Project/00_scenes/Objects/traincart_captain.tscn" id="9_n6lh7"]
+[ext_resource type="PackedScene" uid="uid://da4suhoe3u8kc" path="res://Project/00_scenes/Objects/traincart_emd.tscn" id="10_qk8un"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_75u4i"]
 
@@ -150,7 +154,7 @@ libraries = {
 autoplay = "background_city_move"
 
 [node name="Player" parent="." instance=ExtResource("2_d1w37")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016, 1.1747, -0.524131)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016, 1.1747, -0.259484)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 fov = 87.8
@@ -170,7 +174,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.237, -0.735367, -8.538)
 [node name="traincart" parent="." instance=ExtResource("2_jx81s")]
 transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, -0.740337, 2.59401, -0.0251032)
 
+[node name="traincart2" parent="." instance=ExtResource("2_jx81s")]
+transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, 32.2196, 2.59401, -0.0251032)
+
+[node name="traincart4" parent="." instance=ExtResource("6_r0ecr")]
+transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, 10.342, 2.594, -0.025)
+
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150.07, -227.305)
 pixel_size = 1.0
 texture = ExtResource("6_jyyt0")
+
+[node name="traincart3" parent="." instance=ExtResource("7_3yvme")]
+transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, 21.5673, 2.594, -0.025)
+
+[node name="traincart5" parent="." instance=ExtResource("9_n6lh7")]
+transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, -11.7453, 2.594, -0.025)
+
+[node name="traincart6" parent="." instance=ExtResource("10_qk8un")]
+transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, 43.3919, 2.59564, -0.0128257)
