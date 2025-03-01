@@ -11,9 +11,7 @@ func _init():
 func _process(delta):
 		pass
 
-func _on_area_3d_body_entered(body):
+func _on_area_3d_body_entered(CharacterBody3D):
 	#if (body.name == "CharacterBody3D"):
 		Global.jhealth -= 10
 		print (Global.jhealth)
-		#get_tree().reload_current_scene()
-		

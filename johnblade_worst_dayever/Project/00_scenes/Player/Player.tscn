@@ -90,6 +90,8 @@ height = 1.0
 
 [node name="John" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53331, 0)
+collision_layer = 7
+safe_margin = 0.01
 script = ExtResource("1_qj0td")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
@@ -97,7 +99,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0946717, 0)
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_o3j07")
 animation = &"run"
-frame_progress = 0.614981
+frame_progress = 0.822475
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0110781, -0.186261, -0.0107727)
