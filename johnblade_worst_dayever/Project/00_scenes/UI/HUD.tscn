@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckjjhqjgx3mbq"]
+[gd_scene load_steps=4 format=3 uid="uid://ckjjhqjgx3mbq"]
 
 [ext_resource type="Texture2D" uid="uid://dwgnkmg3blogg" path="res://Project/20_assets/20_sprite/health_empty_light.svg" id="1_yjdhi"]
 [ext_resource type="Texture2D" uid="uid://rqjdcauavtdt" path="res://Project/20_assets/20_sprite/health_full.svg" id="2_64gxp"]
+[ext_resource type="Script" path="res://Project/10_scripts/health_bar.gd" id="3_756eu"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -23,6 +24,7 @@ scale = Vector2(0.24, 0.24)
 value = 50.0
 texture_under = ExtResource("1_yjdhi")
 texture_progress = ExtResource("2_64gxp")
+script = ExtResource("3_756eu")
 
 [node name="bloode" type="TextureProgressBar" parent="Control"]
 offset_left = 172.0
