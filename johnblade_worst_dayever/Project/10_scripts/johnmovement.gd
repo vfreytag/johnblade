@@ -7,6 +7,10 @@ const JUMP_VELOCITY = 5
 const DASH_SPEED = 15
 var dashing = false
 var can_dash = true
+var is_crouched = false
+var can_stand = false
+
+@onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
 
 
 func _physics_process(delta: float) -> void:
@@ -24,6 +28,20 @@ func _physics_process(delta: float) -> void:
 		can_dash = false
 		$Dash_Timer.start()
 		$Can_Dash.start()
+		
+		#Handle crouch
+		if Input.is_action_just_pressed("Crouch"):
+			is_crouched = true
+			animated_sprite_3d.play("crouch")
+			$crouchtimer.start()
+			
+		if Input.is_action_just_pressed("Crouch") and is_crouched and can_stand:
+			is_crouched = false
+			can_stand = false
+			animated_sprite_3d.play("stand")
+		
+		
+	
 
 
 	# Get the input direction and handle the movement/deceleration.
@@ -49,3 +67,7 @@ func _on_dash_timer_timeout() -> void:
 #Can_dash signal, resets ability to dash
 func _on_can_dash_timeout() -> void:
 	can_dash = true
+	
+
+func _on_crouchtimer_timeout() -> void:
+	can_stand = true

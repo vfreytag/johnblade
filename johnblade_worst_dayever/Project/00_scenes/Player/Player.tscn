@@ -1,7 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc2y2isjaowar"]
+[gd_scene load_steps=8 format=3 uid="uid://bc2y2isjaowar"]
 
 [ext_resource type="Texture2D" uid="uid://b54o3g12hd5eh" path="res://Project/20_assets/20_sprite/John_Sprite.png" id="1_ntmv5"]
 [ext_resource type="Script" path="res://Project/10_scripts/johnmovement.gd" id="1_vyl7l"]
+[ext_resource type="Texture2D" uid="uid://coq3d0i8ksw53" path="res://Project/20_assets/20_sprite/John_Crouch.png" id="2_evp6g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxu5h"]
+atlas = ExtResource("2_evp6g")
+region = Rect2(0, 0, 62, 112)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwrie"]
 atlas = ExtResource("1_ntmv5")
@@ -9,9 +14,12 @@ region = Rect2(0, 0, 62, 112)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o3j07"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxu5h")
+}],
 "loop": true,
-"name": &"default",
+"name": &"crouch",
 "speed": 5.0
 }, {
 "frames": [{
@@ -19,12 +27,12 @@ animations = [{
 "texture": SubResource("AtlasTexture_gwrie")
 }],
 "loop": true,
-"name": &"idle_test",
+"name": &"stand",
 "speed": 5.0
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kpmxo"]
-size = Vector3(0.19825, 0.948975, 0.146301)
+size = Vector3(0.165043, 0.948975, 0.146301)
 
 [node name="John" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53331, 0)
@@ -34,11 +42,10 @@ script = ExtResource("1_vyl7l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00614965, 0)
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_o3j07")
-animation = &"idle_test"
-frame_progress = 0.24025
+animation = &"stand"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00552541, -0.0750733, -0.0107727)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0110781, -0.0750733, -0.0107727)
 shape = SubResource("BoxShape3D_kpmxo")
 
 [node name="Dash_Timer" type="Timer" parent="."]
@@ -47,5 +54,9 @@ wait_time = 0.2
 [node name="Can_Dash" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="crouchtimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Can_Dash" to="." method="_on_can_dash_timeout"]
+[connection signal="timeout" from="crouchtimer" to="." method="_on_crouchtimer_timeout"]
