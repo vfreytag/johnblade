@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkgjs8ynu3v34"]
+
+[ext_resource type="Texture2D" uid="uid://dgfk0uq7ob8sx" path="res://Project/20_assets/20_sprite/drop_items.png" id="1_28np1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fqxx"]
+atlas = ExtResource("1_28np1")
+region = Rect2(0, 0, 80, 98)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7xwv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fqxx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a7rdy"]
+size = Vector3(0.337646, 0.468994, 0.103699)
+
+[node name="Droplate" type="Node3D"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s7xwv")
+autoplay = "default"
+frame_progress = 0.648756
+
+[node name="StaticBody3D" type="StaticBody3D" parent="AnimatedSprite3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatedSprite3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0657959, -0.0113525, -0.00485229)
+shape = SubResource("BoxShape3D_a7rdy")
