@@ -133,6 +133,16 @@ size = Vector2(100, 30)
 
 [sub_resource type="AnimationRootNode" id="AnimationRootNode_41ima"]
 
+[sub_resource type="Animation" id="Animation_ifcb4"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Area3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
 [sub_resource type="Animation" id="Animation_hvhqb"]
 resource_name = "stab"
 loop_mode = 1
@@ -143,16 +153,6 @@ tracks/0/path = NodePath("../Area3D")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 1, 0.3, 0, 0.6, 1, 0, 0.3, 0, 0.966667, 1, 1, 0.3, 0)
-
-[sub_resource type="Animation" id="Animation_ifcb4"]
-length = 0.001
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Area3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ae2vu"]
 _data = {
@@ -190,11 +190,16 @@ texture = SubResource("PlaceholderTexture2D_fbq4x")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationRootNode_41ima")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
+[node name="Stab" type="AnimationPlayer" parent="AnimationTree"]
+active = false
 libraries = {
 "": SubResource("AnimationLibrary_ae2vu")
 }
 autoplay = "stab"
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(-2, 0, 0)
+collision_mask = 2
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]
