@@ -31,9 +31,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l32fc"]
-radius = 0.1
-height = 1.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_kpmxo"]
+size = Vector3(0.165, 0.95, 0.146)
 
 [node name="John" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53331, 0)
@@ -46,8 +45,8 @@ sprite_frames = SubResource("SpriteFrames_o3j07")
 animation = &"stand"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0110781, -0.00659388, -0.0107727)
-shape = SubResource("CapsuleShape3D_l32fc")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0110781, -0.0750733, -0.0107727)
+shape = SubResource("BoxShape3D_kpmxo")
 
 [node name="Dash_Timer" type="Timer" parent="."]
 wait_time = 0.2
@@ -55,5 +54,9 @@ wait_time = 0.2
 [node name="Can_Dash" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="crouchtimer" type="Timer" parent="."]
+wait_time = 6.774
+
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Can_Dash" to="." method="_on_can_dash_timeout"]
+[connection signal="timeout" from="crouchtimer" to="." method="_on_crouchtimer_timeout"]

@@ -2,52 +2,80 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 5
+const JUMP_VELOCITY = 6
+const DOUBLE_JUMP_VELOCITY = 8
 
 const DASH_SPEED = 15
+
 var dashing = false
 var can_dash = true
-var is_crouched = false
-var can_stand = false
+var crouching = false
+var jumped = false
+var has_d_jumped = false
 
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
+@onready var collision_shape_3d: int = $CollisionShape3D.shape.height
 
 
+
+#all movement affected by gravity
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	
+	if is_on_floor():
+		has_d_jumped = false
 		
-	#Handle Dash
+	if Input.is_action_pressed("Jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		jumped = true 
+		
+	elif has_d_jumped == false and Input.is_action_just_pressed("Jump"):
+		velocity.y = DOUBLE_JUMP_VELOCITY
+		has_d_jumped = true
+		
+	# Handle double-jump.
+	#if Input.is_action_just_pressed("Jump") and jumped == true and has_d_jumped == false:
+		#velocity.y = DOUBLE_JUMP_VELOCITY
+	#	has_d_jumped = true
+		
+	#Handle Dash input and variables
 	if Input.is_action_just_pressed("Dash") and can_dash:
 		dashing = true
 		can_dash = false
 		$Dash_Timer.start()
 		$Can_Dash.start()
 		
-		#Handle crouch
-		if Input.is_action_just_pressed("Crouch"):
-			is_crouched = true
-			animated_sprite_3d.play("crouch")
-			$crouchtimer.start()
-			
-		if Input.is_action_just_pressed("Crouch") and is_crouched and can_stand:
-			is_crouched = false
-			can_stand = false
-			animated_sprite_3d.play("stand")
+	#handle crouch
+	if Input.is_action_just_pressed("Crouch") and crouching == false:
+		print("crouching")
+		crouching = true
+		animated_sprite_3d.play("crouch")
+		print (collision_shape_3d)
+		
+	elif Input.is_action_just_pressed("Crouch") and crouching == true:
+		crouching = false
+		animated_sprite_3d.play("stand")
+		print("standing")
 		
 		
-	
 
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("Walk_left", "Walk_right", "Jump", "ui_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	#handles sprite flip
+	if input_dir.x < 0:
+		animated_sprite_3d.flip_h = false
+	elif input_dir.x > 0:
+		animated_sprite_3d.flip_h = true
+	
+	#handles dashing velocity
 	if direction:
 		if dashing:
 			velocity.x = direction.x * DASH_SPEED
@@ -60,6 +88,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
+	
+	
+
 #Dash_timer Signal
 func _on_dash_timer_timeout() -> void:
 	dashing = false 
@@ -68,6 +99,3 @@ func _on_dash_timer_timeout() -> void:
 func _on_can_dash_timeout() -> void:
 	can_dash = true
 	
-
-func _on_crouchtimer_timeout() -> void:
-	can_stand = true
