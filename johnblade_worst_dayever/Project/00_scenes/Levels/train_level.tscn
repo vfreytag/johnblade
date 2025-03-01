@@ -1,209 +1,176 @@
-[gd_scene load_steps=11 format=3 uid="uid://b44yp802ugi1x"]
+[gd_scene load_steps=20 format=3 uid="uid://b44yp802ugi1x"]
 
 [ext_resource type="PackedScene" uid="uid://bc2y2isjaowar" path="res://Project/00_scenes/Player/Player.tscn" id="2_d1w37"]
 [ext_resource type="PackedScene" uid="uid://dvk6j7qxfnqow" path="res://Project/00_scenes/Objects/traincart.tscn" id="2_jx81s"]
-[ext_resource type="Texture2D" uid="uid://8vp004jmn3j2" path="res://Project/20_assets/20_sprite/purepng.com-treenaturetreegreensummer-831524002277v9dmh.png" id="3_mom0p"]
+[ext_resource type="PackedScene" uid="uid://byo8pqmgnf1no" path="res://Project/00_scenes/Objects/othertrain.tscn" id="4_47xr8"]
+[ext_resource type="Animation" uid="uid://cottwr0q8gd8d" path="res://Project/20_assets/21_animation/train_passby.res" id="4_dp34h"]
+[ext_resource type="PackedScene" uid="uid://dj441x8vvx3v1" path="res://Project/00_scenes/Objects/lantern_group.tscn" id="4_op4yq"]
+[ext_resource type="Texture2D" uid="uid://b3hylie5rdp6f" path="res://Project/20_assets/20_sprite/vizx.png" id="6_jyyt0"]
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_mchgs"]
-albedo_color = Color(0.46074, 0.84, 0.3108, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_75u4i"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1i2mp"]
-sky_top_color = Color(0.429417, 0.396161, 0.721853, 1)
-sky_horizon_color = Color(0.0760558, 0.22467, 0.189706, 1)
-ground_bottom_color = Color(0.0336928, 0.113946, 0.0872837, 1)
-ground_horizon_color = Color(0.116924, 0.264174, 0.243227, 1)
+[sub_resource type="Sky" id="Sky_skb6v"]
+sky_material = SubResource("ProceduralSkyMaterial_75u4i")
 
-[sub_resource type="Sky" id="Sky_k5n5d"]
-sky_material = SubResource("ProceduralSkyMaterial_1i2mp")
-
-[sub_resource type="Environment" id="Environment_m5aal"]
+[sub_resource type="Environment" id="Environment_iw6k5"]
 background_mode = 2
-sky = SubResource("Sky_k5n5d")
-ambient_light_source = 3
-ambient_light_color = Color(0.739468, 0.659447, 0.872706, 1)
-reflected_light_source = 2
-glow_enabled = true
+sky = SubResource("Sky_skb6v")
+tonemap_mode = 2
+tonemap_exposure = 0.33
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.354825, 0.55362, 0.841273, 1)
+fog_light_energy = 0.52
+fog_density = 0.1575
+fog_depth_curve = 1.51572
+fog_depth_begin = 0.0
+fog_depth_end = 55.2
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0289
-volumetric_fog_albedo = Color(0.54902, 0.717647, 1, 1)
-volumetric_fog_emission = Color(0, 0.116667, 0.25, 1)
-volumetric_fog_emission_energy = 12.25
-volumetric_fog_length = 20.88
-volumetric_fog_ambient_inject = 2.75
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_emission = Color(0.384784, 0.515781, 0.784026, 1)
+volumetric_fog_emission_energy = 4.05
+volumetric_fog_length = 10.3
+volumetric_fog_detail_spread = 1.39955
+
+[sub_resource type="AnimationRootNode" id="AnimationRootNode_81q44"]
 
 [sub_resource type="Animation" id="Animation_x04tj"]
 length = 0.001
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("background")
+tracks/0/path = NodePath("Player/Camera3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 tracks/1/type = "position_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Player/Camera3D")
+tracks/1/path = NodePath("Other Train")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/1/keys = PackedFloat32Array(0, 1, 43.5699, 0, -6.72614)
 
 [sub_resource type="Animation" id="Animation_3akth"]
 resource_name = "parallax"
-length = 5.003
+length = 2.9245
 loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("background")
+tracks/0/path = NodePath("Player/Camera3D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0.0333333, 1, -65.015, 0, 0, 5, 1, 69.735, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.324, 1.22, 0.333333, 1, 0, 0.324, 1.22, 0.366667, 1, 0, 0.239, 1.22, 0.4, 1, 0, 0.324, 1.22, 2.26667, 1, 0, 0.324, 1.22, 2.26677, 1, 0, 0.324, 1.22, 2.3, 1, 0, 0.364, 1.22, 2.33334, 1, 0, 0.324, 1.22, 3.16667, 1, 0, 0.324, 1.22)
 tracks/1/type = "position_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Player/Camera3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.324, 1.22, 1.9, 1, 0, 0.324, 1.22, 2, 1, 0, 0.239, 1.22, 2.1, 1, 0, 0.324, 1.22, 3.9, 1, 0, 0.324, 1.22, 3.9001, 1, 0, 0.324, 1.22, 3.93333, 1, 0, 0.364, 1.22, 3.96667, 1, 0, 0.324, 1.22, 5.16667, 1, 0, 0.324, 1.22)
-tracks/2/type = "position_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Player/Camera3D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array()
+tracks/1/keys = PackedFloat32Array()
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3u00w"]
 _data = {
 "RESET": SubResource("Animation_x04tj"),
-"parallax": SubResource("Animation_3akth")
+"parallax": SubResource("Animation_3akth"),
+"train_passby": ExtResource("4_dp34h")
+}
+
+[sub_resource type="Animation" id="Animation_mrnqa"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Other Train")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 43.5699, 0, -6.72614)
+
+[sub_resource type="Animation" id="Animation_8jyts"]
+resource_name = "new_animation"
+length = 7.598
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Other Train")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(-0.433333, 1, 43.57, 2.13, -6.726, 4.36667, 1, 43.57, 1.5, -6.726, 4.96667, 1, -20.57, 1.5, -6.726, 5.73333, 1, -20.57, 2.13, -6.726, 5.8, 1, 43.57, -10, -6.726, 6.46667, 1, 43.57, -10, -6.726, 7.73333, 1, 43.57, 2.13, -6.726)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j4omw"]
+_data = {
+"RESET": SubResource("Animation_mrnqa"),
+"train_passby": SubResource("Animation_8jyts")
+}
+
+[sub_resource type="Animation" id="Animation_m8fev"]
+resource_name = "background_city_move"
+length = 2.0
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_d6oxi"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ydtwa"]
+_data = {
+"RESET": SubResource("Animation_d6oxi"),
+"background_city_move": SubResource("Animation_m8fev")
 }
 
 [node name="Game" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("2_d1w37")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016, 1.8737, -0.207521)
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-fov = 87.8
-
-[node name="traincart" parent="." instance=ExtResource("2_jx81s")]
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.0747, -1.85372, -54.1361)
-size = Vector3(340.329, 1, 121.098)
-material = SubResource("ORMMaterial3D_mchgs")
-
-[node name="background" type="Node3D" parent="."]
-
-[node name="tree1" type="Sprite3D" parent="background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89409, 5.79181, -11.7423)
-texture = ExtResource("3_mom0p")
-
-[node name="tree2" type="Sprite3D" parent="background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52226, 3.81585, -10.1435)
-texture = ExtResource("3_mom0p")
-
-[node name="tree2" type="Sprite3D" parent="background/tree2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.30852, 1.70452, -10.1435)
-texture = ExtResource("3_mom0p")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6405, 4.33201, -51.7789)
-size = Vector3(10.48, 33.771, 1)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="background/CSGBox3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.781, -16.0173, 7.30094)
-visible = false
-size = Vector3(299.666, 16.325, 95.5898)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="background/CSGBox3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73581, 8.72301, 36.1667)
-size = Vector3(10.48, 33.771, 1)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="background/CSGBox3D2/CSGBox3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.781, -16.0173, 7.30094)
-visible = false
-size = Vector3(299.666, 16.325, 95.5898)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0876, 6.21922, -21.1781)
-size = Vector3(10.48, 37.5454, 1)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="background/CSGBox3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.0649, 17.9399, -20.189)
-size = Vector3(35.9231, 112.142, 1)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="background/CSGBox3D4/CSGBox3D4"]
-transform = Transform3D(0.999962, 0, 0.00876144, 0, 1, 0, -0.00876144, 0, 0.999962, 110.087, -16.1358, -20.189)
-size = Vector3(10.48, 98.4587, 1)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6894, 0.775064, -25.4011)
-size = Vector3(10.48, 26.6571, 1)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4196, 5.1796, -32.2629)
-size = Vector3(10.48, 35.4662, 1)
-
-[node name="lantern" type="CSGBox3D" parent="background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47768, -2.20034, -19.0431)
-size = Vector3(0.209473, 8.36426, 0.235962)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="background/lantern"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00494385, 4.12828, 0.0262537)
-size = Vector3(1.43933, 0.139587, 0.341705)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="background/lantern/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.520886, -0.320597, 0)
-light_energy = 4.167
-light_indirect_energy = 1.065
-light_volumetric_fog_energy = 3.825
-shadow_enabled = true
-spot_range = 8.51831
-spot_angle = 27.7025
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="background/lantern/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.508132, -0.320597, 0)
-light_energy = 4.167
-light_indirect_energy = 1.065
-light_volumetric_fog_energy = 3.825
-shadow_enabled = true
-spot_range = 8.51831
-spot_angle = 27.7025
-
-[node name="lantern2" type="CSGBox3D" parent="background"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8072, -2.20034, -46.1197)
-size = Vector3(0.209473, 8.36426, 0.235962)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="background/lantern2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00494385, 4.12828, 0.0262537)
-size = Vector3(1.43933, 0.139587, 0.341705)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="background/lantern2/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.520886, -0.320597, 0)
-light_energy = 4.167
-light_indirect_energy = 1.065
-light_volumetric_fog_energy = 3.825
-shadow_enabled = true
-spot_range = 8.51831
-spot_angle = 27.7025
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="background/lantern2/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.508132, -0.320597, 0)
-light_energy = 4.167
-light_indirect_energy = 1.065
-light_volumetric_fog_energy = 3.825
-shadow_enabled = true
-spot_range = 8.51831
-spot_angle = 27.7025
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_m5aal")
+environment = SubResource("Environment_iw6k5")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationRootNode_81q44")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("Trainjitter")
+
+[node name="Trainjitter" type="AnimationPlayer" parent="AnimationTree"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_3u00w")
 }
 autoplay = "parallax"
+
+[node name="TrainPassby" type="AnimationPlayer" parent="AnimationTree"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_j4omw")
+}
+autoplay = "train_passby"
+
+[node name="Background" type="AnimationPlayer" parent="AnimationTree"]
+libraries = {
+"": SubResource("AnimationLibrary_ydtwa")
+}
+autoplay = "background_city_move"
+
+[node name="Player" parent="." instance=ExtResource("2_d1w37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016, 1.1747, -0.524131)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+fov = 87.8
+
+[node name="Other Train" parent="." instance=ExtResource("4_47xr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5699, 0, -6.72614)
+
+[node name="Node3D" parent="Other Train" instance=ExtResource("4_47xr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.632, 0, -0.0143051)
+
+[node name="Node3D2" parent="Other Train" instance=ExtResource("4_47xr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.442, 0, -0.0143051)
+
+[node name="lantern_group" parent="." instance=ExtResource("4_op4yq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.237, -0.735367, -8.538)
+
+[node name="traincart" parent="." instance=ExtResource("2_jx81s")]
+transform = Transform3D(0.82, 0, 0, 0, -0.82, 1.23817e-07, 0, -1.23817e-07, -0.82, -0.740337, 2.59401, -0.0251032)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150.07, -227.305)
+pixel_size = 1.0
+texture = ExtResource("6_jyyt0")

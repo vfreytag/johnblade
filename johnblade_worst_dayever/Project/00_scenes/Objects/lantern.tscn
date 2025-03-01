@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn85o8x4oojy4"]
+
+[ext_resource type="Texture2D" uid="uid://da23r8truq2v7" path="res://Project/20_assets/20_sprite/lantern.png" id="1_ctbal"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dcmrt"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(0.79, 0.467548, 0.1659, 1)
+emission_energy_multiplier = 4.8
+
+[node name="lantern" type="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.82708, -12.6898)
+modulate = Color(0, 0, 0, 1)
+pixel_size = 0.003
+texture = ExtResource("1_ctbal")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0218363)
+polygon = PackedVector2Array(-0.168982, 1.69293, -0.403577, 2.42103, 0.429524, 2.38001, 0.189954, 1.64146)
+depth = 0.07
+material = SubResource("StandardMaterial3D_dcmrt")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="CSGPolygon3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06423, 0)
+light_color = Color(1, 0.709804, 0.101961, 1)
+light_volumetric_fog_energy = 16.0
