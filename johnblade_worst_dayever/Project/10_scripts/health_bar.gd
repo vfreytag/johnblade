@@ -5,3 +5,5 @@ func _ready() -> void:
 	
 #func _process(delta: float) -> void:
 	#self.get_parent().value = Global.jhealth
+func _process(delta : float):
+	value = Global.jhealth
