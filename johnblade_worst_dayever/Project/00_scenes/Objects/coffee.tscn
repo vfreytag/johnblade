@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkgjs8ynu3v34"]
+[gd_scene load_steps=7 format=3 uid="uid://in0mx03mvr14"]
 
-[ext_resource type="Script" path="res://Project/00_scenes/Objects/droplate.gd" id="1_hed5y"]
-[ext_resource type="Texture2D" uid="uid://c8hknc215k18n" path="res://Project/20_assets/20_sprite/choccybar.png" id="2_qap8r"]
+[ext_resource type="Texture2D" uid="uid://chst88ggu27du" path="res://Project/20_assets/20_sprite/coffee_drop.png" id="1_nb633"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s7xwv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_qap8r")
+"texture": ExtResource("1_nb633")
 }],
 "loop": true,
 "name": &"default",
@@ -16,6 +15,16 @@ animations = [{
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a7rdy"]
 size = Vector3(0.337646, 0.468994, 0.103699)
+
+[sub_resource type="Animation" id="Animation_r4ypy"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
 [sub_resource type="Animation" id="Animation_4rrhl"]
 resource_name = "float"
@@ -28,24 +37,13 @@ tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0.33, 0, 1.03333, 1, 0, 0, 0)
 
-[sub_resource type="Animation" id="Animation_r4ypy"]
-length = 0.001
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ncpfc"]
 _data = {
 "RESET": SubResource("Animation_r4ypy"),
 "float": SubResource("Animation_4rrhl")
 }
 
-[node name="Droplate" type="Node3D"]
-script = ExtResource("1_hed5y")
+[node name="Coffee" type="Node3D"]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 pixel_size = 0.001

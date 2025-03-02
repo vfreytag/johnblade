@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b44yp802ugi1x"]
+[gd_scene load_steps=31 format=3 uid="uid://b44yp802ugi1x"]
 
 [ext_resource type="PackedScene" uid="uid://ckjjhqjgx3mbq" path="res://Project/00_scenes/UI/HUD.tscn" id="1_2odeh"]
 [ext_resource type="PackedScene" uid="uid://bc2y2isjaowar" path="res://Project/00_scenes/Player/Player.tscn" id="2_d1w37"]
@@ -12,6 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://bsoig6ypuwj1j" path="res://Project/00_scenes/Objects/traincart_captain.tscn" id="9_n6lh7"]
 [ext_resource type="PackedScene" uid="uid://da4suhoe3u8kc" path="res://Project/00_scenes/Objects/traincart_emd.tscn" id="10_qk8un"]
 [ext_resource type="PackedScene" uid="uid://kshnpgb8yw6g" path="res://Project/00_scenes/Enemy/enemy_1.tscn" id="12_ls5ur"]
+[ext_resource type="PackedScene" uid="uid://bkgjs8ynu3v34" path="res://Project/00_scenes/Objects/droplate.tscn" id="13_bj1ss"]
+[ext_resource type="PackedScene" uid="uid://in0mx03mvr14" path="res://Project/00_scenes/Objects/coffee.tscn" id="14_m74ic"]
+[ext_resource type="PackedScene" uid="uid://bdb5wdx6cqq4a" path="res://Project/00_scenes/Objects/ciggy.tscn" id="15_kf001"]
+[ext_resource type="PackedScene" uid="uid://csfvyxhm2iewd" path="res://Project/00_scenes/Objects/meat.tscn" id="16_qm7vr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_75u4i"]
 
@@ -216,3 +220,15 @@ shape = SubResource("WorldBoundaryShape3D_pwk2k")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.555175, 0.56969, -0.0595804)
 shape = SubResource("WorldBoundaryShape3D_pwk2k")
+
+[node name="Droplate" parent="." instance=ExtResource("13_bj1ss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.999, 0.148, -0.160397)
+
+[node name="Coffee" parent="." instance=ExtResource("14_m74ic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.875, 0.108, -0.16)
+
+[node name="ciggy" parent="." instance=ExtResource("15_kf001")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.362, 0.2, -0.16)
+
+[node name="Meat" parent="." instance=ExtResource("16_qm7vr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.475, 0.206, -0.16)
