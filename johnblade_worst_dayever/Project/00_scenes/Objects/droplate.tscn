@@ -15,7 +15,17 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a7rdy"]
-size = Vector3(0.337646, 0.468994, 0.103699)
+size = Vector3(0.338, 0.469, 0.209)
+
+[sub_resource type="Animation" id="Animation_r4ypy"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
 [sub_resource type="Animation" id="Animation_4rrhl"]
 resource_name = "float"
@@ -27,16 +37,6 @@ tracks/0/path = NodePath("AnimatedSprite3D")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.5, 1, 0, 0.33, 0, 1.03333, 1, 0, 0, 0)
-
-[sub_resource type="Animation" id="Animation_r4ypy"]
-length = 0.001
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ncpfc"]
 _data = {
@@ -53,11 +53,11 @@ sprite_frames = SubResource("SpriteFrames_s7xwv")
 autoplay = "default"
 frame_progress = 0.648756
 
-[node name="StaticBody3D" type="StaticBody3D" parent="AnimatedSprite3D"]
+[node name="Area3D" type="Area3D" parent="AnimatedSprite3D"]
 collision_layer = 8
 collision_mask = 64
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatedSprite3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatedSprite3D/Area3D"]
 shape = SubResource("BoxShape3D_a7rdy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -65,3 +65,6 @@ libraries = {
 "": SubResource("AnimationLibrary_ncpfc")
 }
 autoplay = "float"
+
+[connection signal="body_entered" from="AnimatedSprite3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_shape_entered" from="AnimatedSprite3D/Area3D" to="." method="_on_area_3d_body_shape_entered"]

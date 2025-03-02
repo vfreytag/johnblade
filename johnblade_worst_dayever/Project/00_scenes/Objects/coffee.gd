@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	print(Global.inv_choc)
-	if Global.inv_choc <= 6:
-		Global.inv_choc +=1
+	print(Global.inv_coff)
+	if Global.inv_coff <= 6:
+		Global.inv_coff +=1
 		self.queue_free()

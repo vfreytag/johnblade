@@ -222,7 +222,7 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.555
 shape = SubResource("WorldBoundaryShape3D_pwk2k")
 
 [node name="Droplate" parent="." instance=ExtResource("13_bj1ss")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.999, 0.148, -0.160397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.999, 0.148, -0.25)
 
 [node name="Coffee" parent="." instance=ExtResource("14_m74ic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.875, 0.108, -0.16)

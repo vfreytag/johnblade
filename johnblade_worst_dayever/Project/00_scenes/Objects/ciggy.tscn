@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdb5wdx6cqq4a"]
+[gd_scene load_steps=8 format=3 uid="uid://bdb5wdx6cqq4a"]
 
 [ext_resource type="Texture2D" uid="uid://dsv1dq1tq8sb1" path="res://Project/20_assets/20_sprite/ciggy_drop.png" id="1_b7yk7"]
+[ext_resource type="Script" path="res://Project/00_scenes/Objects/ciggy.gd" id="2_km1v3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s7xwv"]
 animations = [{
@@ -13,7 +14,7 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_a7rdy"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_41isu"]
 size = Vector3(0.337646, 0.468994, 0.103699)
 
 [sub_resource type="Animation" id="Animation_r4ypy"]
@@ -44,6 +45,7 @@ _data = {
 }
 
 [node name="ciggy" type="Node3D"]
+script = ExtResource("2_km1v3")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 pixel_size = 0.001
@@ -51,15 +53,17 @@ sprite_frames = SubResource("SpriteFrames_s7xwv")
 autoplay = "default"
 frame_progress = 0.648756
 
-[node name="StaticBody3D" type="StaticBody3D" parent="AnimatedSprite3D"]
+[node name="Area3D" type="Area3D" parent="AnimatedSprite3D"]
 collision_layer = 8
 collision_mask = 64
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatedSprite3D/StaticBody3D"]
-shape = SubResource("BoxShape3D_a7rdy")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatedSprite3D/Area3D"]
+shape = SubResource("BoxShape3D_41isu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ncpfc")
 }
 autoplay = "float"
+
+[connection signal="body_entered" from="AnimatedSprite3D/Area3D" to="." method="_on_area_3d_body_entered"]
