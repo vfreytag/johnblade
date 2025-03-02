@@ -8,10 +8,10 @@ var jciggy: int  = 50
 
 var block = false
 
-var inv_choc: int
-var inv_meat: int
-var inv_cig: int
-var inv_coff: int
+var inv_choc = 0
+var inv_meat = 0
+var inv_cig = 0
+var inv_coff = 0
 
 var debt: int
 

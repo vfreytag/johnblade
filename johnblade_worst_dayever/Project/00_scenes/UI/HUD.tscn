@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ckjjhqjgx3mbq"]
+[gd_scene load_steps=22 format=3 uid="uid://ckjjhqjgx3mbq"]
 
 [ext_resource type="Texture2D" uid="uid://b15ds2nddrxff" path="res://Project/20_assets/20_sprite/EmptyHealth-1.png" id="1_7227t"]
 [ext_resource type="Texture2D" uid="uid://ctlbl6nhe38fy" path="res://Project/20_assets/20_sprite/FullHealth-1.png" id="1_x7d0a"]
@@ -14,6 +14,19 @@
 [ext_resource type="Texture2D" uid="uid://dnkqy46jnunve" path="res://Project/20_assets/20_sprite/ciggy_empty.png" id="8_3sula"]
 [ext_resource type="Texture2D" uid="uid://b6kwjol3es44g" path="res://Project/20_assets/20_sprite/ciggy full.png" id="9_kxe3g"]
 [ext_resource type="FontFile" uid="uid://cpe4wpkxm2nvb" path="res://Project/20_assets/40_fonts/Stabby Bold.ttf" id="10_ukovi"]
+[ext_resource type="Script" path="res://Project/10_scripts/inventory.gd" id="15_18ifr"]
+[ext_resource type="Texture2D" uid="uid://c5fmwdyvdlcse" path="res://Project/20_assets/20_sprite/inventorybase.png" id="15_vnupj"]
+[ext_resource type="Texture2D" uid="uid://dsv1dq1tq8sb1" path="res://Project/20_assets/20_sprite/ciggy_drop.png" id="16_gyr88"]
+[ext_resource type="Texture2D" uid="uid://c8hknc215k18n" path="res://Project/20_assets/20_sprite/choccybar.png" id="17_ypt1c"]
+[ext_resource type="Texture2D" uid="uid://dbf7s6od6hr2i" path="res://Project/20_assets/20_sprite/MEAT_drop.png" id="18_l83sh"]
+[ext_resource type="Texture2D" uid="uid://chst88ggu27du" path="res://Project/20_assets/20_sprite/coffee_drop.png" id="19_n137d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vsep1"]
+font = ExtResource("10_ukovi")
+font_size = 59
+font_color = Color(0.0823529, 0.00392157, 0.00784314, 1)
+outline_size = 2
+outline_color = Color(1, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 follow_viewport_enabled = true
@@ -170,5 +183,102 @@ offset_right = 2617.0
 offset_bottom = 579.0
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("6_aja4d")
+
+[node name="MarginContainer3" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -184.0
+offset_right = 367.0
+grow_vertical = 0
+script = ExtResource("15_18ifr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control/MarginContainer3"]
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer3/CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -308.0
+offset_right = 2613.0
+offset_bottom = 267.0
+grow_vertical = 0
+scale = Vector2(0.520001, 0.542704)
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("15_vnupj")
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer3/CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 98.0767
+offset_top = 418.276
+offset_right = 610.077
+offset_bottom = 930.276
+scale = Vector2(0.289221, 0.289221)
+texture = ExtResource("16_gyr88")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/MarginContainer3/CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 211.538
+offset_top = 331.673
+offset_right = 723.538
+offset_bottom = 843.673
+scale = Vector2(0.252154, 0.252154)
+texture = ExtResource("17_ypt1c")
+
+[node name="TextureRect3" type="TextureRect" parent="Control/MarginContainer3/CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 107.692
+offset_top = 226.643
+offset_right = 619.692
+offset_bottom = 738.643
+scale = Vector2(0.252154, 0.252154)
+texture = ExtResource("18_l83sh")
+
+[node name="TextureRect4" type="TextureRect" parent="Control/MarginContainer3/CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 17.3077
+offset_top = 327.987
+offset_right = 529.308
+offset_bottom = 839.987
+scale = Vector2(0.252154, 0.252154)
+texture = ExtResource("19_n137d")
+
+[node name="Label" type="Label" parent="Control/MarginContainer3/CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 186.538
+offset_top = 313.246
+offset_right = 226.538
+offset_bottom = 364.246
+text = "3"
+label_settings = SubResource("LabelSettings_vsep1")
+
+[node name="Label2" type="Label" parent="Control/MarginContainer3/CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 317.307
+offset_top = 385.109
+offset_right = 357.307
+offset_bottom = 436.109
+text = "1"
+label_settings = SubResource("LabelSettings_vsep1")
+
+[node name="Label3" type="Label" parent="Control/MarginContainer3/CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 111.538
+offset_top = 398.007
+offset_right = 151.538
+offset_bottom = 449.007
+text = "1"
+label_settings = SubResource("LabelSettings_vsep1")
+
+[node name="Label4" type="Label" parent="Control/MarginContainer3/CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 215.384
+offset_top = 499.352
+offset_right = 255.384
+offset_bottom = 550.352
+text = "1"
+label_settings = SubResource("LabelSettings_vsep1")
 
 [connection signal="value_changed" from="Control/MarginContainer/CanvasLayer2/health" to="Control/MarginContainer/CanvasLayer2/health" method="_on_value_changed"]

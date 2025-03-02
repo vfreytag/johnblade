@@ -10,8 +10,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+"""func _on_area_3d_body_entered(body: Node3D) -> void:
+	print(Global.inv_meat)
+	if Global.inv_meat <= 6:
+		Global.inv_meat +=1
+		self.queue_free()"""
+
+
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	print(Global.inv_choc)
-	if Global.inv_choc <= 6:
-		Global.inv_choc +=1
+	print(Global.inv_meat)
+	if Global.inv_meat <= 6:
+		Global.inv_meat +=1
 		self.queue_free()
