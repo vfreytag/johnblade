@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://in0mx03mvr14"]
 
 [ext_resource type="Texture2D" uid="uid://chst88ggu27du" path="res://Project/20_assets/20_sprite/coffee_drop.png" id="1_nb633"]
-[ext_resource type="Script" path="res://Project/00_scenes/Objects/coffee.gd" id="2_64315"]
+[ext_resource type="Script" path="res://Project/10_scripts/coffee.gd" id="2_64315"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2pqa4"]
 size = Vector3(0.337646, 0.468994, 0.103699)

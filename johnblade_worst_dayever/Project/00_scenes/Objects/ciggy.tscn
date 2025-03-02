@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bdb5wdx6cqq4a"]
 
 [ext_resource type="Texture2D" uid="uid://dsv1dq1tq8sb1" path="res://Project/20_assets/20_sprite/ciggy_drop.png" id="1_b7yk7"]
-[ext_resource type="Script" path="res://Project/00_scenes/Objects/ciggy.gd" id="2_km1v3"]
+[ext_resource type="Script" path="res://Project/10_scripts/ciggy.gd" id="2_km1v3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s7xwv"]
 animations = [{

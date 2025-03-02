@@ -23,6 +23,11 @@ Global="*res://Project/10_scripts/global.gd"
 
 window/stretch/mode="viewport"
 
+[global_group]
+
+Player=""
+Enemy=""
+
 [gui]
 
 theme/custom="res://Project/20_assets/progress_bar.tres"

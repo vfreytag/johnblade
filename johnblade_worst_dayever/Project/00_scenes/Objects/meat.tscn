@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://csfvyxhm2iewd"]
 
-[ext_resource type="Script" path="res://Project/00_scenes/Objects/meat.gd" id="1_mh8mj"]
+[ext_resource type="Script" path="res://Project/10_scripts/meat.gd" id="1_mh8mj"]
 [ext_resource type="Texture2D" uid="uid://dbf7s6od6hr2i" path="res://Project/20_assets/20_sprite/MEAT_drop.png" id="1_va5k7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ojdc"]

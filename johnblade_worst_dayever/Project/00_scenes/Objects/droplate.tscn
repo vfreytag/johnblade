@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bkgjs8ynu3v34"]
 
-[ext_resource type="Script" path="res://Project/00_scenes/Objects/droplate.gd" id="1_hed5y"]
+[ext_resource type="Script" path="res://Project/10_scripts/droplate.gd" id="1_hed5y"]
 [ext_resource type="Texture2D" uid="uid://c8hknc215k18n" path="res://Project/20_assets/20_sprite/choccybar.png" id="2_qap8r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s7xwv"]

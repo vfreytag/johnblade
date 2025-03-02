@@ -92,7 +92,7 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_1iwm0"]
 size = Vector3(0.575, 1.1, 0.265)
 
-[node name="John" type="CharacterBody3D"]
+[node name="John" type="CharacterBody3D" groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53331, 0)
 collision_layer = 79
 safe_margin = 0.01

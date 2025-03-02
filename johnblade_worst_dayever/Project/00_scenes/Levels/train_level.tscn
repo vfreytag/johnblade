@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bfa28qfmu6uvy" path="res://Project/00_scenes/Objects/traincart_nodoor.tscn" id="7_3yvme"]
 [ext_resource type="PackedScene" uid="uid://bsoig6ypuwj1j" path="res://Project/00_scenes/Objects/traincart_captain.tscn" id="9_n6lh7"]
 [ext_resource type="PackedScene" uid="uid://da4suhoe3u8kc" path="res://Project/00_scenes/Objects/traincart_emd.tscn" id="10_qk8un"]
-[ext_resource type="PackedScene" uid="uid://kshnpgb8yw6g" path="res://Project/00_scenes/Enemy/enemy_1.tscn" id="12_ls5ur"]
+[ext_resource type="PackedScene" uid="uid://dtk6h5dmwjqq5" path="res://Project/00_scenes/Enemy/clown_small.tscn" id="12_yhk81"]
 [ext_resource type="PackedScene" uid="uid://bkgjs8ynu3v34" path="res://Project/00_scenes/Objects/droplate.tscn" id="13_bj1ss"]
 [ext_resource type="PackedScene" uid="uid://in0mx03mvr14" path="res://Project/00_scenes/Objects/coffee.tscn" id="14_m74ic"]
 [ext_resource type="PackedScene" uid="uid://bdb5wdx6cqq4a" path="res://Project/00_scenes/Objects/ciggy.tscn" id="15_kf001"]
@@ -208,8 +208,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 150.07, -227.305)
 pixel_size = 1.0
 texture = ExtResource("6_jyyt0")
 
-[node name="Enemy1" parent="." instance=ExtResource("12_ls5ur")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4195, 0.999893, -0.241411)
+[node name="Enemy" parent="." instance=ExtResource("12_yhk81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.549, 0.616793, -0.26)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
