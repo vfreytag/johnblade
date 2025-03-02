@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsoig6ypuwj1j"]
+[gd_scene load_steps=9 format=3 uid="uid://bsoig6ypuwj1j"]
 
+[ext_resource type="Texture2D" uid="uid://dn2ykvngv5eou" path="res://Project/20_assets/20_sprite/blk_bg.png" id="1_gikwo"]
 [ext_resource type="Material" uid="uid://dp6eqj3lvuwj5" path="res://Project/20_assets/30_materials/mat_wall.tres" id="1_niybe"]
 [ext_resource type="Material" uid="uid://h33h4n6pnk5p" path="res://Project/20_assets/30_materials/mat_inside.tres" id="2_32khn"]
 [ext_resource type="PackedScene" uid="uid://cghbkdydbkrau" path="res://Project/00_scenes/Objects/seat.tscn" id="3_p6hlw"]
@@ -48,6 +49,18 @@ light_volumetric_fog_energy = 3.648
 light_size = 0.06
 shadow_enabled = true
 distance_fade_enabled = true
+
+[node name="Sprite3D" type="Sprite3D" parent="CSGBox3D3ceiling"]
+transform = Transform3D(18.925, 0, 0, 0, 4, 0, 0, 0, 1.76, -1.17, -0.662026, 2.18261)
+pixel_size = 0.075
+texture = ExtResource("1_gikwo")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D3ceiling"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 4.26326e-14, 0.0256009, 1.77503, -0.155551)
+operation = 2
+radius = 1.25776
+height = 13.6156
+material = ExtResource("2_32khn")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1.20099, 0.211766, -3.19757e-08, -0.211766, 1.20099, 2.79745e-09, 3.19757e-08, 2.79756e-09, 1.21951, 0.401795, 2.74153, -1.93965)
@@ -185,15 +198,27 @@ size = Vector3(0.0893555, 3.86633, 3.48248)
 material = ExtResource("1_niybe")
 
 [node name="wall3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 8.01151, 1.65351, -0.19961)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 8.01151, 1.33053, -0.19961)
 use_collision = true
-size = Vector3(0.0893555, 3.86633, 3.48248)
+size = Vector3(0.0893555, 3.86633, 4.12845)
 material = ExtResource("1_niybe")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="wall3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.281132, -0.34259, 0.355957)
+visible = false
 operation = 2
 size = Vector3(1, 1.05408, 2.75488)
+material = ExtResource("2_32khn")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="wall3"]
+transform = Transform3D(1.615, 0, 0, 0, -1.52334e-07, -1.75, 0, 3.485, -7.64949e-08, 0.0680728, -0.0124593, 0.93846)
+operation = 2
+material = ExtResource("2_32khn")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.13163e-14, 0, 2.13163e-14, 1, -0.281131, -0.026235, 1.61834)
+operation = 2
+size = Vector3(1, 1.68549, 1.29187)
 material = ExtResource("2_32khn")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]

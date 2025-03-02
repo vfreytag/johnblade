@@ -4,7 +4,8 @@
 [ext_resource type="Script" path="res://Project/10_scripts/player.gd" id="1_qj0td"]
 [ext_resource type="Texture2D" uid="uid://coq3d0i8ksw53" path="res://Project/20_assets/20_sprite/John_Crouch.png" id="2_evp6g"]
 [ext_resource type="Texture2D" uid="uid://dtnraj81aqmhs" path="res://Project/20_assets/20_sprite/John_dash.png" id="3_can2k"]
-[ext_resource type="Texture2D" uid="uid://cpanw7cxxj8le" path="res://Project/20_assets/20_sprite/John_dj.png" id="4_yrr7n"]
+[ext_resource type="Texture2D" uid="uid://bsn63gy05w3o2" path="res://Project/20_assets/20_sprite/John_j2.png" id="4_0l6rp"]
+[ext_resource type="Texture2D" uid="uid://bstgxmcwbaq1x" path="res://Project/20_assets/20_sprite/john_j1.png" id="5_77fd6"]
 [ext_resource type="Texture2D" uid="uid://bkqqqn77ygliw" path="res://Project/20_assets/20_sprite/texture.png" id="5_qve51"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxu5h"]
@@ -13,10 +14,6 @@ region = Rect2(0, 0, 62, 112)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gkpru"]
 atlas = ExtResource("3_can2k")
-region = Rect2(0, 0, 62, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6j3oq"]
-atlas = ExtResource("4_yrr7n")
 region = Rect2(0, 0, 62, 112)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlpv8"]
@@ -55,10 +52,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6j3oq")
+"texture": ExtResource("4_0l6rp")
 }],
 "loop": true,
 "name": &"double_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_77fd6")
+}],
+"loop": true,
+"name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -98,7 +103,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0946717, 0)
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_o3j07")
 animation = &"stand"
-frame_progress = 0.869816
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0110781, -0.0950108, -0.0107727)
@@ -108,7 +112,7 @@ shape = SubResource("BoxShape3D_1iwm0")
 wait_time = 0.2
 
 [node name="Can_Dash" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.5
 
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Can_Dash" to="." method="_on_can_dash_timeout"]

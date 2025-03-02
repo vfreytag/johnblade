@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b44yp802ugi1x"]
+[gd_scene load_steps=27 format=3 uid="uid://b44yp802ugi1x"]
 
 [ext_resource type="PackedScene" uid="uid://ckjjhqjgx3mbq" path="res://Project/00_scenes/UI/HUD.tscn" id="1_2odeh"]
 [ext_resource type="PackedScene" uid="uid://bc2y2isjaowar" path="res://Project/00_scenes/Player/Player.tscn" id="2_d1w37"]
@@ -125,6 +125,9 @@ _data = {
 "background_city_move": SubResource("Animation_m8fev")
 }
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pwk2k"]
+plane = Plane(0, 0, 1, 0)
+
 [node name="Game" type="Node3D"]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("1_2odeh")]
@@ -161,7 +164,8 @@ autoplay = "background_city_move"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016, 1.1747, -0.259484)
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-fov = 87.8
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.324, 1.22)
+fov = 97.8
 
 [node name="Other Train" parent="." instance=ExtResource("4_47xr8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.5699, 0, -6.72614)
@@ -203,3 +207,9 @@ texture = ExtResource("6_jyyt0")
 
 [node name="Enemy1" parent="." instance=ExtResource("12_ls5ur")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4195, 0.999893, -0.241411)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -0.555175, 0.56969, -0.0595804)
+shape = SubResource("WorldBoundaryShape3D_pwk2k")

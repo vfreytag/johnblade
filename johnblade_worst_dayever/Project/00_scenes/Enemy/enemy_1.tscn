@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1cw47"]
-size = Vector3(0.830811, 1.22997, 1)
+size = Vector3(0.461365, 1.11645, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t2p4g"]
 size = Vector3(0.948328, 0.260994, 1)
@@ -46,29 +46,6 @@ tracks/1/path = NodePath("../Area3D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0)
-
-[sub_resource type="Animation" id="Animation_hvhqb"]
-resource_name = "stab"
-length = 1.0975
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Area3D")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.4, 0, 0.2, 1, 0, 0.3, 0, 0.288562, 1, -0.0751422, 0.3, 0, 0.566667, 1, 0, 0.4, 0)
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Area3D:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 1.39626), Vector3(0, 0, 1.5708), Vector3(0, 0, 0), Vector3(0, 0, 1.39626)]
-}
 
 [sub_resource type="Animation" id="Animation_3pmsy"]
 resource_name = "idle"
@@ -114,6 +91,29 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 1.39626), Vector3(0, 0, 1.39626)]
 }
 
+[sub_resource type="Animation" id="Animation_hvhqb"]
+resource_name = "stab"
+length = 1.0975
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Area3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.4, 0, 0.2, 1, 0, 0.3, 0, 0.288562, 1, -0.0751422, 0.3, 0, 0.566667, 1, 0, 0.4, 0)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Area3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.39626), Vector3(0, 0, 1.5708), Vector3(0, 0, 0), Vector3(0, 0, 1.39626)]
+}
+
 [sub_resource type="Animation" id="Animation_lg5k2"]
 resource_name = "sweet"
 tracks/0/type = "value"
@@ -156,13 +156,12 @@ sprite_frames = SubResource("SpriteFrames_e5pme")
 frame_progress = 0.594318
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0509033, -0.15269, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117035, -0.20945, 0)
 shape = SubResource("BoxShape3D_1cw47")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="RigidBody3D"]
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 2
 collision_mask = 2
 
@@ -188,6 +187,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.136822, 0)
 target_position = Vector3(-2, 0, 0)
 collision_mask = 2
 
+[node name="Attack_Waiter" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]
 [connection signal="animation_finished" from="AnimationTree/attackanim" to="." method="_on_attackanim_animation_finished"]
+[connection signal="timeout" from="Attack_Waiter" to="." method="_on_attack_waiter_timeout"]

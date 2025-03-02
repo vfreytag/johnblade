@@ -15,8 +15,12 @@ func _process(delta):
 
 func _on_area_3d_body_entered(CharacterBody3D):
 	#if (body.name == "CharacterBody3D"):
-		Global.jhealth -= 10
-		print (Global.jhealth)
+		if Global.block == true:
+				Global.jhealth -= 5
+				print (Global.jhealth, "blocked")
+		else:
+				Global.jhealth -= 10
+				print (Global.jhealth, "not so blocked")
 
 #func attack():
 #	$AnimationTree/attackanim.current_animation = stab
