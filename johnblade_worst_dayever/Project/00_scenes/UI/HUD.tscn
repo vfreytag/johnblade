@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ckjjhqjgx3mbq"]
+[gd_scene load_steps=15 format=3 uid="uid://ckjjhqjgx3mbq"]
 
 [ext_resource type="Texture2D" uid="uid://b15ds2nddrxff" path="res://Project/20_assets/20_sprite/EmptyHealth-1.png" id="1_7227t"]
 [ext_resource type="Texture2D" uid="uid://ctlbl6nhe38fy" path="res://Project/20_assets/20_sprite/FullHealth-1.png" id="1_x7d0a"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d3np72dijbm4i" path="res://Project/20_assets/20_sprite/FullBloode-1.png" id="5_f57l8"]
 [ext_resource type="Texture2D" uid="uid://dge3su2jdb6tc" path="res://Project/20_assets/20_sprite/coffee_empty.png" id="6_0pbta"]
 [ext_resource type="Texture2D" uid="uid://b1yei7s0dgg5g" path="res://Project/20_assets/20_sprite/HealthAndBloodBar_TExture.png" id="6_aja4d"]
+[ext_resource type="Texture2D" uid="uid://dkofftarsg4nx" path="res://Project/20_assets/20_sprite/debt.png" id="7_ln3fy"]
 [ext_resource type="Texture2D" uid="uid://d4evfh3p0lcr0" path="res://Project/20_assets/20_sprite/coffee.png" id="7_qfsj3"]
 [ext_resource type="Texture2D" uid="uid://dnkqy46jnunve" path="res://Project/20_assets/20_sprite/ciggy_empty.png" id="8_3sula"]
 [ext_resource type="Texture2D" uid="uid://b6kwjol3es44g" path="res://Project/20_assets/20_sprite/ciggy full.png" id="9_kxe3g"]
@@ -36,44 +37,51 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Control/MarginContainer"]
-layer = 2
-
-[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/CanvasLayer"]
-z_index = 1
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 2617.0
-offset_bottom = 579.0
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_aja4d")
-
 [node name="CanvasLayer2" type="CanvasLayer" parent="Control/MarginContainer"]
+
+[node name="bloode" type="TextureProgressBar" parent="Control/MarginContainer/CanvasLayer2"]
+texture_filter = 1
+offset_left = -25.0
+offset_top = 3.0
+offset_right = 2588.0
+offset_bottom = 578.0
+scale = Vector2(0.211316, 0.207173)
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_jr1ht")
+texture_progress = ExtResource("5_f57l8")
+metadata/_edit_use_anchors_ = true
 
 [node name="health" type="TextureProgressBar" parent="Control/MarginContainer/CanvasLayer2"]
 texture_filter = 1
-offset_left = -44.0
-offset_top = 2.0
-offset_right = 2569.0
-offset_bottom = 577.0
-scale = Vector2(0.217296, 0.217296)
+offset_left = -33.0
+offset_top = 1.0
+offset_right = 2580.0
+offset_bottom = 576.0
+scale = Vector2(0.23, 0.23)
 value = 50.0
+nine_patch_stretch = true
 texture_under = ExtResource("1_7227t")
 texture_progress = ExtResource("1_x7d0a")
 script = ExtResource("3_756eu")
 metadata/_edit_use_anchors_ = true
 
-[node name="bloode" type="TextureProgressBar" parent="Control/MarginContainer/CanvasLayer2"]
-texture_filter = 1
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 2617.0
-offset_bottom = 579.0
-scale = Vector2(0.20371, 0.20371)
-value = 50.0
-texture_under = ExtResource("4_jr1ht")
-texture_progress = ExtResource("5_f57l8")
-metadata/_edit_use_anchors_ = true
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control"]
+layout_mode = 2
+offset_left = 972.0
+offset_top = 608.0
+offset_right = 1141.0
+offset_bottom = 636.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="Control/HBoxContainer2"]
+z_index = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0.619608, 0.0901961, 0.188235, 1)
+theme_override_fonts/font = ExtResource("10_ukovi")
+theme_override_font_sizes/font_size = 32
+text = "- £999999987.97"
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -81,32 +89,31 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -303.0
+offset_top = -325.0
+offset_right = 1188.0
+offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.554398, 0.554398)
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer2"]
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 8
-
-[node name="Label" type="Label" parent="Control/MarginContainer2/HBoxContainer2"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.619608, 0.0901961, 0.188235, 1)
-theme_override_fonts/font = ExtResource("10_ukovi")
-theme_override_font_sizes/font_size = 32
-text = "- £999999987.97"
+texture = ExtResource("7_ln3fy")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 2
-offset_left = 20.0
-offset_top = 92.0
-offset_right = 120.0
-offset_bottom = 140.0
+offset_left = 9.0
+offset_top = 116.0
+offset_right = 109.0
+offset_bottom = 164.0
 size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="coffee" type="TextureProgressBar" parent="Control/HBoxContainer"]
 layout_mode = 2
@@ -149,5 +156,19 @@ fill_mode = 1
 texture_under = ExtResource("4_ck5hi")
 texture_progress = ExtResource("5_25r54")
 metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+layer = 2
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Control/CanvasLayer"]
+visible = false
+z_index = 1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 2617.0
+offset_bottom = 579.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_aja4d")
 
 [connection signal="value_changed" from="Control/MarginContainer/CanvasLayer2/health" to="Control/MarginContainer/CanvasLayer2/health" method="_on_value_changed"]

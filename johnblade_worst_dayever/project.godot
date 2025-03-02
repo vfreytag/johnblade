@@ -21,7 +21,6 @@ Global="*res://Project/10_scripts/global.gd"
 
 [display]
 
-window/size/mode=2
 window/stretch/mode="viewport"
 
 [gui]
