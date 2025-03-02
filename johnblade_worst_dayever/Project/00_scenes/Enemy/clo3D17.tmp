@@ -1,0 +1,227 @@
+[gd_scene load_steps=20 format=3 uid="uid://dtk6h5dmwjqq5"]
+
+[ext_resource type="Script" path="res://Project/10_scripts/basicenemy_test.gd" id="1_8kd3j"]
+[ext_resource type="Texture2D" uid="uid://bfjdhdo2f070y" path="res://Project/20_assets/20_sprite/clwon_spripe_wip.png" id="1_gk3nu"]
+[ext_resource type="Script" path="res://Project/10_scripts/state_machine_clown_enemy.gd" id="2_x5jye"]
+[ext_resource type="Script" path="res://Project/10_scripts/enemy_idle_clown.gd" id="3_8ds7p"]
+[ext_resource type="Texture2D" uid="uid://c8accpxpaib1" path="res://Project/20_assets/20_sprite/clown_run_sheet.png" id="3_8srhi"]
+[ext_resource type="Script" path="res://Project/10_scripts/clown_enemy_follow.gd" id="6_y6vwq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnfug"]
+atlas = ExtResource("3_8srhi")
+region = Rect2(0, 41, 621, 986)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihmql"]
+atlas = ExtResource("3_8srhi")
+region = Rect2(0, 1027, 621, 986)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e5pme"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gk3nu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnfug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihmql")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8tgr7"]
+radius = 0.15
+height = 1.2544
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2p4g"]
+size = Vector3(0.948328, 0.260994, 0.328384)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fbq4x"]
+size = Vector2(100, 30)
+
+[sub_resource type="AnimationRootNode" id="AnimationRootNode_41ima"]
+
+[sub_resource type="Animation" id="Animation_ifcb4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Area3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Area3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_3pmsy"]
+resource_name = "idle"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Area3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.4, 0)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Area3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1.39626)]
+}
+
+[sub_resource type="Animation" id="Animation_0276w"]
+resource_name = "slash"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Area3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.4, 0, 0.433333, 1, 0, 0.4, 0)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Area3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.39626), Vector3(0, 0, 1.39626)]
+}
+
+[sub_resource type="Animation" id="Animation_hvhqb"]
+resource_name = "stab"
+length = 1.0975
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Area3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.4, 0, 0.2, 1, 0, 0.3, 0, 0.288562, 1, -0.0751422, 0.3, 0, 0.566667, 1, 0, 0.4, 0)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Area3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.39626), Vector3(0, 0, 1.5708), Vector3(0, 0, 0), Vector3(0, 0, 1.39626)]
+}
+
+[sub_resource type="Animation" id="Animation_lg5k2"]
+resource_name = "sweet"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Area3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1.39626)]
+}
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Area3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.4, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ae2vu"]
+_data = {
+"RESET": SubResource("Animation_ifcb4"),
+"idle": SubResource("Animation_3pmsy"),
+"slash": SubResource("Animation_0276w"),
+"stab": SubResource("Animation_hvhqb"),
+"sweep": SubResource("Animation_lg5k2")
+}
+
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_8kd3j")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.101132, -0.092758, 0)
+pixel_size = 0.0014
+sprite_frames = SubResource("SpriteFrames_e5pme")
+animation = &"run"
+frame_progress = 0.234401
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117035, -0.0929502, 0.0302124)
+shape = SubResource("CapsuleShape3D_8tgr7")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.980665, 0.0542126, 0.0426212)
+shape = SubResource("BoxShape3D_t2p4g")
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95683, 0, 0.0129055)
+texture = SubResource("PlaceholderTexture2D_fbq4x")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationRootNode_41ima")
+
+[node name="attackanim" type="AnimationPlayer" parent="AnimationTree"]
+libraries = {
+"": SubResource("AnimationLibrary_ae2vu")
+}
+autoplay = "idle"
+
+[node name="JohnRange" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.136822, 0)
+target_position = Vector3(-2, 0, 0)
+collision_mask = 2
+
+[node name="Attack_Waiter" type="Timer" parent="."]
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_x5jye")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_8ds7p")
+enemy = NodePath("../..")
+move_speed = null
+
+[node name="Follow" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_y6vwq")
+enemy = NodePath("../..")
