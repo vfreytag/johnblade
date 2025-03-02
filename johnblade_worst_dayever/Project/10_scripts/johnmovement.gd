@@ -28,15 +28,28 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if is_on_floor():
 		has_d_jumped = false
+		if crouching == false:
+			$CollisionShape3D.shape.size = Vector3(Global.jx, Global.standheight, Global.jz)
+			animated_sprite_3d.play("stand")
 		
 	if Input.is_action_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		jumped = true 
+		#animated_sprite_3d.play("jump")
+		$CollisionShape3D.shape.size = Vector3(Global.jx, Global.jump1height, Global.jz)
 		
 	elif has_d_jumped == false and Input.is_action_just_pressed("Jump"):
 		velocity.y = DOUBLE_JUMP_VELOCITY
-		animated_sprite_3d.play("double_jump")
+		#animated_sprite_3d.play("double_jump")
+		$CollisionShape3D.shape.size = Vector3(Global.jx, Global.jump2height, Global.jz)
 		has_d_jumped = true
+		
+	if not is_on_floor() and jumped == true and has_d_jumped == false:
+		animated_sprite_3d.play("jump")
+		$CollisionShape3D.shape.size = Vector3(Global.jx, Global.jump1height, Global.jz)
+		
+	if has_d_jumped == true:
+		animated_sprite_3d.play("double_jump")
 		
 	# Handle double-jump.
 	#if Input.is_action_just_pressed("Jump") and jumped == true and has_d_jumped == false:
@@ -63,8 +76,9 @@ func _physics_process(delta: float) -> void:
 	elif input_dir.x > 0:
 		animated_sprite_3d.flip_h = true
 		
-	if input_dir.x == 0 and crouching == false:
+	if is_on_floor and input_dir.x == 0 and crouching == false:
 		animated_sprite_3d.play("stand")
+		$CollisionShape3D.shape.size = Vector3(Global.jx, Global.standheight, Global.jz)
 	
 	#handles velocity
 	if direction:
@@ -76,7 +90,9 @@ func _physics_process(delta: float) -> void:
 			#animated_sprite_3d.play("crouch")
 		else:
 			velocity.x = direction.x * SPEED
-			animated_sprite_3d.play("run")
+			if is_on_floor():
+				animated_sprite_3d.play("run")
+				$CollisionShape3D.shape.size = Vector3(Global.jx, Global.standheight, Global.jz)
 		#velocity.z = direction.z * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -95,9 +111,10 @@ func _physics_process(delta: float) -> void:
 		
 	elif Input.is_action_just_pressed("Crouch") and crouching == true:
 		crouching = false
-		animated_sprite_3d.play("stand")
 		$CollisionShape3D.shape.size = Vector3(Global.jx, Global.standheight, Global.jz)
 		print("standing")
+		if not is_on_floor():
+			animated_sprite_3d.play("stand")
 
 	move_and_slide()
 	
@@ -111,4 +128,3 @@ func _on_dash_timer_timeout() -> void:
 #Can_dash signal, resets ability to dash
 func _on_can_dash_timeout() -> void:
 	can_dash = true
-	
