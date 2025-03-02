@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckjjhqjgx3mbq"]
+[gd_scene load_steps=14 format=3 uid="uid://ckjjhqjgx3mbq"]
 
 [ext_resource type="Texture2D" uid="uid://b15ds2nddrxff" path="res://Project/20_assets/20_sprite/EmptyHealth-1.png" id="1_7227t"]
 [ext_resource type="Texture2D" uid="uid://ctlbl6nhe38fy" path="res://Project/20_assets/20_sprite/FullHealth-1.png" id="1_x7d0a"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dhcusnaee3ell" path="res://Project/20_assets/20_sprite/bossbar_full.svg" id="5_25r54"]
 [ext_resource type="Texture2D" uid="uid://d3np72dijbm4i" path="res://Project/20_assets/20_sprite/FullBloode-1.png" id="5_f57l8"]
 [ext_resource type="Texture2D" uid="uid://dge3su2jdb6tc" path="res://Project/20_assets/20_sprite/coffee_empty.png" id="6_0pbta"]
+[ext_resource type="Texture2D" uid="uid://b1yei7s0dgg5g" path="res://Project/20_assets/20_sprite/HealthAndBloodBar_TExture.png" id="6_aja4d"]
 [ext_resource type="Texture2D" uid="uid://d4evfh3p0lcr0" path="res://Project/20_assets/20_sprite/coffee.png" id="7_qfsj3"]
 [ext_resource type="Texture2D" uid="uid://dnkqy46jnunve" path="res://Project/20_assets/20_sprite/ciggy_empty.png" id="8_3sula"]
 [ext_resource type="Texture2D" uid="uid://b6kwjol3es44g" path="res://Project/20_assets/20_sprite/ciggy full.png" id="9_kxe3g"]
@@ -24,85 +25,55 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Control"]
-modulate = Color(0, 0, 0, 0.196078)
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -77.0
-offset_top = -48.0
-offset_right = 644.0
-offset_bottom = 132.0
-rotation = -0.174533
-
-[node name="Panel2" type="Panel" parent="Control"]
-modulate = Color(0, 0, 0, 0.196078)
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = -50.0
-offset_top = 549.0
-offset_right = 648.0
-offset_bottom = 801.0
-rotation = 0.174533
-
-[node name="Panel3" type="Panel" parent="Control"]
-modulate = Color(0, 0, 0, 0.196078)
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 552.0
-offset_top = 663.0
-offset_right = 1250.0
-offset_bottom = 915.0
-rotation = -0.174533
-
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_direction = 1
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 180.0
-grow_horizontal = 2
+offset_right = 2663.0
+offset_bottom = 625.0
+scale = Vector2(0.2, 0.2)
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
-layout_mode = 2
+[node name="CanvasLayer" type="CanvasLayer" parent="Control/MarginContainer"]
+layer = 2
 
-[node name="health" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/CanvasLayer"]
+z_index = 1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 2617.0
+offset_bottom = 579.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_aja4d")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Control/MarginContainer"]
+
+[node name="health" type="TextureProgressBar" parent="Control/MarginContainer/CanvasLayer2"]
 texture_filter = 1
-layout_mode = 2
+offset_left = -44.0
+offset_top = 2.0
+offset_right = 2569.0
+offset_bottom = 577.0
+scale = Vector2(0.217296, 0.217296)
 value = 50.0
 texture_under = ExtResource("1_7227t")
 texture_progress = ExtResource("1_x7d0a")
 script = ExtResource("3_756eu")
 metadata/_edit_use_anchors_ = true
 
-[node name="bloode" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer"]
+[node name="bloode" type="TextureProgressBar" parent="Control/MarginContainer/CanvasLayer2"]
 texture_filter = 1
-layout_mode = 2
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 2617.0
+offset_bottom = 579.0
+scale = Vector2(0.20371, 0.20371)
 value = 50.0
 texture_under = ExtResource("4_jr1ht")
 texture_progress = ExtResource("5_f57l8")
 metadata/_edit_use_anchors_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="coffee" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-value = 50.0
-fill_mode = 3
-texture_under = ExtResource("6_0pbta")
-texture_progress = ExtResource("7_qfsj3")
-
-[node name="ciggy" type="TextureProgressBar" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-value = 65.0
-fill_mode = 3
-texture_under = ExtResource("8_3sula")
-texture_progress = ExtResource("9_kxe3g")
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -128,6 +99,28 @@ theme_override_colors/font_color = Color(0.619608, 0.0901961, 0.188235, 1)
 theme_override_fonts/font = ExtResource("10_ukovi")
 theme_override_font_sizes/font_size = 32
 text = "- £999999987.97"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 92.0
+offset_right = 120.0
+offset_bottom = 140.0
+size_flags_horizontal = 0
+
+[node name="coffee" type="TextureProgressBar" parent="Control/HBoxContainer"]
+layout_mode = 2
+value = 50.0
+fill_mode = 3
+texture_under = ExtResource("6_0pbta")
+texture_progress = ExtResource("7_qfsj3")
+
+[node name="ciggy" type="TextureProgressBar" parent="Control/HBoxContainer"]
+layout_mode = 2
+value = 65.0
+fill_mode = 3
+texture_under = ExtResource("8_3sula")
+texture_progress = ExtResource("9_kxe3g")
 
 [node name="Label" type="Label" parent="Control"]
 visible = false
@@ -157,4 +150,4 @@ texture_under = ExtResource("4_ck5hi")
 texture_progress = ExtResource("5_25r54")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="value_changed" from="Control/MarginContainer/VBoxContainer/health" to="Control/MarginContainer/VBoxContainer/health" method="_on_value_changed"]
+[connection signal="value_changed" from="Control/MarginContainer/CanvasLayer2/health" to="Control/MarginContainer/CanvasLayer2/health" method="_on_value_changed"]
