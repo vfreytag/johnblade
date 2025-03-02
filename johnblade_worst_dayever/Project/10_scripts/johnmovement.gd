@@ -4,9 +4,13 @@ extends CharacterBody3D
 const SPEED = 7
 const JUMP_VELOCITY = 6
 const DOUBLE_JUMP_VELOCITY = 8
-
 const DASH_SPEED = 20
 const CROUCH_SPEED = 3
+
+enum States {IDLE, MOVING, JUMPING, DOUBLE_JUMPING, DASHING, CROUCHING}
+
+var state = States.IDLE
+var direction
 
 var dashing = false
 var can_dash = true
@@ -24,9 +28,46 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	handle_state_transitions()
+	perform_state_actions(delta)
+	move_and_slide()
 
+func handle_state_transitions() -> void:
+	#Jump Transition
+	if Input.is_action_pressed("Jump") and is_on_floor():
+		state = States.JUMPING
+		velocity.y = JUMP_VELOCITY
+	#walk flip
+	direction = Input.get_axis("Walk_left", "Walk_right")
+	if direction != 0:
+		if direction < 0:
+			animated_sprite_3d.flip_h = false
+		else:
+			animated_sprite_3d.flip_h = true
+		state = States.MOVING
+	elif is_on_floor() and state != States.JUMPING:
+		state = States.IDLE
+
+func perform_state_actions(delta: float) -> void:
+	match state:
+		States.IDLE:
+			animated_sprite_3d.play("stand")
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		States.MOVING:
+			animated_sprite_3d.play("run")
+			velocity.x = direction * SPEED
+		States.JUMPING:
+			animated_sprite_3d.play("jump")
+			"""if velocity.y > 0:
+				pass
+				animated_sprite_3d.play("fall")
+			else:
+				animated_sprite_3d.play("jump")"""
+
+
+"""
 	# Handle jump.
-	if is_on_floor():
+	if is_on_floor()
 		has_d_jumped = false
 		if crouching == false:
 			$CollisionShape3D.shape.size = Vector3(Global.jx, Global.standheight, Global.jz)
@@ -117,6 +158,8 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_3d.play("stand")
 
 	move_and_slide()
+	
+	"""
 	
 	
 	
