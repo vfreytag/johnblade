@@ -50,8 +50,8 @@ func _init():
 
 	
 func _process(delta):
-	if Global.jhealth == 0:
-		get_tree().reload_current_scene() #DEATh
+	if Global.jhealth <= 0:
+		get_tree().change_scene_to_file("res://Project/00_scenes/Levels/death.tscn") #DEATh
 		
 		
 func _on_animated_sprite_3d_animation_finished() -> void:
