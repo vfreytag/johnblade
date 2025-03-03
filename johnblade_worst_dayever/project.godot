@@ -21,7 +21,7 @@ Global="*res://Project/10_scripts/global.gd"
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [global_group]
 
