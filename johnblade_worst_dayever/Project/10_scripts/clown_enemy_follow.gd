@@ -22,4 +22,13 @@ func Physics_Update(delta: float):
 	if direction.length() > 5:
 		print("not following")
 		Transitioned.emit(self, "idle")
+	if direction.length() <= 5:
+		if $"../../Mid_Juan".is_colliding():
+		#$JohnRange.is_colliding()
+			print("time2attack")
+			Transitioned.emit(self, "Attack_1")
+		elif $"../../Bottom_Juan".is_colliding():
+			Transitioned.emit(self, "Attack_2")
+		elif $"../../Top_Juan".is_colliding():
+			Transitioned.emit(self, "Attack_3")
 		

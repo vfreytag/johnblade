@@ -11,5 +11,5 @@ func _physics_process(delta):
 		$AnimatedSprite3D.play("run")
 	if velocity.x > 0:
 		$AnimatedSprite3D.flip_h = true
-	else:
+	if velocity.x < 0:
 		$AnimatedSprite3D.flip_h = false

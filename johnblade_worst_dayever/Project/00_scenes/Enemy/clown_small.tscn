@@ -1,12 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://dtk6h5dmwjqq5"]
+[gd_scene load_steps=24 format=3 uid="uid://dtk6h5dmwjqq5"]
 
 [ext_resource type="Script" path="res://Project/10_scripts/basicenemy_test.gd" id="1_8kd3j"]
 [ext_resource type="Texture2D" uid="uid://bfjdhdo2f070y" path="res://Project/20_assets/20_sprite/clwon_spripe_wip.png" id="1_gk3nu"]
 [ext_resource type="Script" path="res://Project/10_scripts/state_machine_clown_enemy.gd" id="2_x5jye"]
 [ext_resource type="Script" path="res://Project/10_scripts/enemy_idle_clown.gd" id="3_8ds7p"]
 [ext_resource type="Texture2D" uid="uid://c8accpxpaib1" path="res://Project/20_assets/20_sprite/clown_run_sheet.png" id="3_8srhi"]
+[ext_resource type="Shape3D" uid="uid://bs5x7smjdrpy8" path="res://Project/20_assets/box_atk.tres" id="4_kwelc"]
+[ext_resource type="Material" uid="uid://b5yojhqabq7ms" path="res://Project/20_assets/30_materials/cushion.tres" id="5_hhdiy"]
 [ext_resource type="Script" path="res://Project/10_scripts/clown_enemy_follow.gd" id="6_y6vwq"]
 [ext_resource type="Script" path="res://Project/10_scripts/clown_attack.gd" id="7_dc0al"]
+[ext_resource type="Script" path="res://Project/10_scripts/clown_attack2.gd" id="8_cwftt"]
+[ext_resource type="Script" path="res://Project/10_scripts/clown_attack3.gd" id="9_dvbi1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dnfug"]
 atlas = ExtResource("3_8srhi")
@@ -38,11 +42,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_t2p4g"]
-size = Vector3(0.948328, 0.260994, 0.328384)
-
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fbq4x"]
-size = Vector2(100, 30)
+size = Vector2(99, 29)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8tgr7"]
 radius = 0.15
@@ -100,20 +101,20 @@ tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("../AnimatedSprite3D/Area3D")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.4, 0, 0.433333, 1, 0, 0.4, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.4, 0, 0.3, 1, 0, 0.47, 0, 0.5, 1, 0, 0.435, 0, 0.7, 1, 0, 0.4, 0)
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("../AnimatedSprite3D/Area3D:rotation")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 1.39626), Vector3(0, 0, 1.39626)]
+"values": [Vector3(0, 0, 1.39626), Vector3(0, 0, -0.705113), Vector3(0, 0, -3.14159), Vector3(0, 0, 1.39626)]
 }
 
 [sub_resource type="Animation" id="Animation_hvhqb"]
@@ -125,7 +126,7 @@ tracks/0/enabled = true
 tracks/0/path = NodePath("../AnimatedSprite3D/Area3D")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.4, 0, 0.2, 1, 0, 0.3, 0, 0.288562, 1, -0.0751422, 0.3, 0, 0.566667, 1, 0, 0.4, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.4, 0, 0.2, 1, 0, 0.3, 0, 0.288562, 1, 0.8, 0.3, 0, 0.533333, 1, 0.215, 0.344, 0, 0.733333, 1, 0, 0.4, 0, 0.833333, 1, 0.8, 0.3, 0, 0.941048, 1, 0, 0.4, 0)
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -133,33 +134,34 @@ tracks/1/path = NodePath("../AnimatedSprite3D/Area3D:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.433333, 0.533333, 0.666667, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 1.39626), Vector3(0, 0, 1.5708), Vector3(0, 0, 0), Vector3(0, 0, 1.39626)]
+"values": [Vector3(0, 0, 1.39626), Vector3(0, 0, 1.5708), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 1.51316e-07), Vector3(0, 0, 1.39626)]
 }
 
 [sub_resource type="Animation" id="Animation_lg5k2"]
 resource_name = "sweet"
+length = 0.453
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("../AnimatedSprite3D/Area3D:rotation")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.133333, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 1.39626)]
+"values": [Vector3(0, 0, 1.39626), Vector3(0, 0, 0), Vector3(0, 0, 1.39626)]
 }
 tracks/1/type = "position_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("../AnimatedSprite3D/Area3D")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.4, 0)
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.4, 0, 0.133333, 1, 0, -0.2, 0, 0.433333, 1, 0, 0.4, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ae2vu"]
 _data = {
@@ -184,7 +186,7 @@ animation = &"run"
 frame_progress = 0.217733
 
 [node name="Top_Juan" type="RayCast3D" parent="AnimatedSprite3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2645, 0.435051, 0)
+transform = Transform3D(0.894934, 0.446198, 0, -0.446198, 0.894934, 0, 0, 0, 1, -0.219, 0.438, 0.00722009)
 target_position = Vector3(-1, 0, 0)
 
 [node name="Mid_Juan" type="RayCast3D" parent="AnimatedSprite3D"]
@@ -196,14 +198,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101132, -0.475138, 0)
 target_position = Vector3(-1, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="AnimatedSprite3D"]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatedSprite3D/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.980665, 0.0542126, 0.0426212)
-visible = false
-shape = SubResource("BoxShape3D_t2p4g")
+transform = Transform3D(1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 0, 1, -0.980665, 0.0542126, 0.0426212)
+shape = ExtResource("4_kwelc")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="AnimatedSprite3D/Area3D/CollisionShape3D"]
+size = Vector3(0.662, 0.061, 0.328)
+material = ExtResource("5_hhdiy")
 
 [node name="Sprite3D" type="Sprite3D" parent="AnimatedSprite3D/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95683, 0, 0.0129055)
@@ -222,8 +227,16 @@ enemy = NodePath("../../..")
 script = ExtResource("6_y6vwq")
 enemy = NodePath("../../..")
 
-[node name="Attack_1" type="Node" parent="AnimatedSprite3D/State Machine"]
+[node name="Attack_1" type="Node" parent="AnimatedSprite3D/State Machine" node_paths=PackedStringArray("enemy")]
 script = ExtResource("7_dc0al")
+enemy = NodePath("../../..")
+
+[node name="Attack_2" type="Node" parent="AnimatedSprite3D/State Machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("8_cwftt")
+enemy = NodePath("../../..")
+
+[node name="Attack_3" type="Node" parent="AnimatedSprite3D/State Machine"]
+script = ExtResource("9_dvbi1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117035, -0.0929502, 0.0302124)
@@ -241,3 +254,11 @@ libraries = {
 autoplay = "idle"
 
 [node name="Attack_Waiter" type="Timer" parent="."]
+
+[connection signal="body_entered" from="AnimatedSprite3D/Area3D" to="AnimatedSprite3D/State Machine/Attack_1" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="AnimatedSprite3D/Area3D" to="AnimatedSprite3D/State Machine/Attack_2" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="AnimatedSprite3D/Area3D" to="AnimatedSprite3D/State Machine/Attack_3" method="_on_area_3d_body_entered"]
+[connection signal="animation_finished" from="AnimationTree/attackanim" to="." method="_on_attackanim_animation_finished"]
+[connection signal="animation_finished" from="AnimationTree/attackanim" to="AnimatedSprite3D/State Machine/Attack_1" method="_on_attackanim_animation_finished"]
+[connection signal="animation_finished" from="AnimationTree/attackanim" to="AnimatedSprite3D/State Machine/Attack_2" method="_on_attackanim_animation_finished"]
+[connection signal="animation_finished" from="AnimationTree/attackanim" to="AnimatedSprite3D/State Machine/Attack_3" method="_on_attackanim_animation_finished"]

@@ -1,5 +1,5 @@
 extends State
-class_name EnemyAttack_1
+class_name EnemyAttack_2
 
 @export var enemy: CharacterBody3D
 @export var move_speed := 2.0
@@ -10,7 +10,7 @@ func Enter():
 		#Global.jhealth -= 1
 		#print("kill")
 		player = get_tree().get_first_node_in_group("Player")
-		$"../../../AnimationTree/attackanim".play("stab")
+		$"../../../AnimationTree/attackanim".play("sweep")
 		
 #func Physics_Update(delta: float):
 
