@@ -10,6 +10,7 @@ func Enter():
 		#Global.jhealth -= 1
 		#print("kill")
 		player = get_tree().get_first_node_in_group("Player")
+		await get_tree().create_timer(randi_range(0.5, 1.5)).timeout
 		$"../../../AnimationTree/attackanim".play("sweep")
 		
 #func Physics_Update(delta: float):
