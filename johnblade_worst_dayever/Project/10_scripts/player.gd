@@ -1,12 +1,12 @@
-extends "res://Project/10_scripts/johnmovement.gd"
+##extends "res://Project/10_scripts/johnmovement.gd"
 
-var health = 100
-var chocheal = 25
+#var health = 100
+##var chocheal = 25
 
 
-signal health_updated(health)
-signal killed() 
-signal hit
+#signal health_updated(health)
+##signal killed() 
+#signal hit
 
 
 func _init():
