@@ -53,7 +53,7 @@ sprite_frames = SubResource("SpriteFrames_2ojdc")
 autoplay = "default"
 
 [node name="Area3D" type="Area3D" parent="AnimatedSprite3D"]
-collision_layer = 8
+collision_layer = 0
 collision_mask = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatedSprite3D/Area3D"]

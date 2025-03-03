@@ -1,55 +1,35 @@
-[gd_scene load_steps=24 format=3 uid="uid://dtk6h5dmwjqq5"]
+[gd_scene load_steps=15 format=3 uid="uid://3euvtftp8m3d"]
 
-[ext_resource type="Script" path="res://Project/10_scripts/basicenemy_test.gd" id="1_8kd3j"]
-[ext_resource type="Texture2D" uid="uid://bfjdhdo2f070y" path="res://Project/20_assets/20_sprite/clwon_spripe_wip.png" id="1_gk3nu"]
-[ext_resource type="Script" path="res://Project/10_scripts/state_machine_clown_enemy.gd" id="2_x5jye"]
-[ext_resource type="Script" path="res://Project/10_scripts/enemy_idle_clown.gd" id="3_8ds7p"]
-[ext_resource type="Texture2D" uid="uid://c8accpxpaib1" path="res://Project/20_assets/20_sprite/clown_run_sheet.png" id="3_8srhi"]
-[ext_resource type="Shape3D" uid="uid://bs5x7smjdrpy8" path="res://Project/20_assets/box_atk.tres" id="4_kwelc"]
-[ext_resource type="Material" uid="uid://b5yojhqabq7ms" path="res://Project/20_assets/30_materials/cushion.tres" id="5_hhdiy"]
-[ext_resource type="Script" path="res://Project/10_scripts/clown_enemy_follow.gd" id="6_y6vwq"]
-[ext_resource type="Script" path="res://Project/10_scripts/clown_attack.gd" id="7_dc0al"]
-[ext_resource type="Script" path="res://Project/10_scripts/clown_attack2.gd" id="8_cwftt"]
-[ext_resource type="Script" path="res://Project/10_scripts/clown_attack3.gd" id="9_dvbi1"]
+[ext_resource type="Texture2D" uid="uid://cw1s47q4m7v55" path="res://Project/20_assets/20_sprite/bigclown.png" id="1_h43ie"]
+[ext_resource type="Shape3D" uid="uid://bs5x7smjdrpy8" path="res://Project/20_assets/box_atk.tres" id="2_e61vp"]
+[ext_resource type="Material" uid="uid://b5yojhqabq7ms" path="res://Project/20_assets/30_materials/cushion.tres" id="3_hhsut"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dnfug"]
-atlas = ExtResource("3_8srhi")
-region = Rect2(0, 41, 621, 986)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ihmql"]
-atlas = ExtResource("3_8srhi")
-region = Rect2(0, 1027, 621, 986)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e5pme"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_no0mt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_gk3nu")
+"texture": ExtResource("1_h43ie")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dnfug")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ihmql")
-}],
+"frames": [],
 "loop": true,
 "name": &"run",
 "speed": 5.0
 }]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fbq4x"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c504s"]
 size = Vector2(99, 29)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8tgr7"]
-radius = 0.15
-height = 0.949239
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjy4i"]
+size = Vector3(1.12207, 0.864716, 0.174805)
 
-[sub_resource type="AnimationRootNode" id="AnimationRootNode_41ima"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o0jod"]
+radius = 0.319915
+
+[sub_resource type="AnimationRootNode" id="AnimationRootNode_pgrwn"]
 
 [sub_resource type="Animation" id="Animation_ifcb4"]
 length = 0.001
@@ -172,33 +152,25 @@ _data = {
 "sweep": SubResource("Animation_lg5k2")
 }
 
-[node name="CharacterBody3D" type="CharacterBody3D" groups=["Enemy"]]
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-axis_lock_angular_z = true
-script = ExtResource("1_8kd3j")
+[node name="BigClown" type="CharacterBody3D" groups=["Enemy"]]
+collision_mask = 0
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.101132, -0.092758, 0)
-pixel_size = 0.0014
-sprite_frames = SubResource("SpriteFrames_e5pme")
-animation = &"run"
-frame_progress = 0.217733
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.101132, 0.526207, 0)
+pixel_size = 0.004
+sprite_frames = SubResource("SpriteFrames_no0mt")
 
 [node name="Top_Juan" type="RayCast3D" parent="AnimatedSprite3D"]
 transform = Transform3D(0.894934, 0.446198, 0, -0.446198, 0.894934, 0, 0, 0, 1, -0.219, 0.438, 0.00722009)
 target_position = Vector3(-1, 0, 0)
-collision_mask = 8
 
 [node name="Mid_Juan" type="RayCast3D" parent="AnimatedSprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0777941, 0.139434, 0)
 target_position = Vector3(-1, 0, 0)
-collision_mask = 8
 
 [node name="Bottom_Juan" type="RayCast3D" parent="AnimatedSprite3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101132, -0.475138, 0)
 target_position = Vector3(-1, 0, 0)
-collision_mask = 8
 
 [node name="Area3D" type="Area3D" parent="AnimatedSprite3D"]
 collision_layer = 0
@@ -206,48 +178,41 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatedSprite3D/Area3D"]
 transform = Transform3D(1, 1.49012e-08, 0, -1.49012e-08, 1, 0, 0, 0, 1, -0.980665, 0.0542126, 0.0426212)
-shape = ExtResource("4_kwelc")
+shape = ExtResource("2_e61vp")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="AnimatedSprite3D/Area3D/CollisionShape3D"]
 size = Vector3(0.662, 0.061, 0.328)
-material = ExtResource("5_hhdiy")
+material = ExtResource("3_hhsut")
 
 [node name="Sprite3D" type="Sprite3D" parent="AnimatedSprite3D/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95683, 0, 0.0129055)
 visible = false
-texture = SubResource("PlaceholderTexture2D_fbq4x")
+texture = SubResource("PlaceholderTexture2D_c504s")
 
-[node name="State Machine" type="Node" parent="AnimatedSprite3D" node_paths=PackedStringArray("initial_state")]
-script = ExtResource("2_x5jye")
-initial_state = NodePath("Idle")
+[node name="State Machine" type="Node" parent="AnimatedSprite3D"]
 
-[node name="Idle" type="Node" parent="AnimatedSprite3D/State Machine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("3_8ds7p")
-enemy = NodePath("../../..")
+[node name="Idle" type="Node" parent="AnimatedSprite3D/State Machine"]
 
-[node name="Follow" type="Node" parent="AnimatedSprite3D/State Machine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("6_y6vwq")
-enemy = NodePath("../../..")
+[node name="Follow" type="Node" parent="AnimatedSprite3D/State Machine"]
 
-[node name="Attack_1" type="Node" parent="AnimatedSprite3D/State Machine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("7_dc0al")
-enemy = NodePath("../../..")
+[node name="Attack_1" type="Node" parent="AnimatedSprite3D/State Machine"]
 
-[node name="Attack_2" type="Node" parent="AnimatedSprite3D/State Machine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("8_cwftt")
-enemy = NodePath("../../..")
+[node name="Attack_2" type="Node" parent="AnimatedSprite3D/State Machine"]
 
 [node name="Attack_3" type="Node" parent="AnimatedSprite3D/State Machine"]
-script = ExtResource("9_dvbi1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117035, -0.0929502, 0.0302124)
-shape = SubResource("CapsuleShape3D_8tgr7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0967713, 0.0382657, -0.0167305)
+shape = SubResource("BoxShape3D_mjy4i")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0967713, 0.220905, -0.195197)
+shape = SubResource("CapsuleShape3D_o0jod")
 
 [node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationRootNode_41ima")
+tree_root = SubResource("AnimationRootNode_pgrwn")
 
 [node name="attackanim" type="AnimationPlayer" parent="AnimationTree"]
 libraries = {
@@ -260,7 +225,3 @@ autoplay = "idle"
 [connection signal="body_entered" from="AnimatedSprite3D/Area3D" to="AnimatedSprite3D/State Machine/Attack_1" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="AnimatedSprite3D/Area3D" to="AnimatedSprite3D/State Machine/Attack_2" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="AnimatedSprite3D/Area3D" to="AnimatedSprite3D/State Machine/Attack_3" method="_on_area_3d_body_entered"]
-[connection signal="animation_finished" from="AnimationTree/attackanim" to="." method="_on_attackanim_animation_finished"]
-[connection signal="animation_finished" from="AnimationTree/attackanim" to="AnimatedSprite3D/State Machine/Attack_1" method="_on_attackanim_animation_finished"]
-[connection signal="animation_finished" from="AnimationTree/attackanim" to="AnimatedSprite3D/State Machine/Attack_2" method="_on_attackanim_animation_finished"]
-[connection signal="animation_finished" from="AnimationTree/attackanim" to="AnimatedSprite3D/State Machine/Attack_3" method="_on_attackanim_animation_finished"]

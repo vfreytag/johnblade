@@ -7,7 +7,6 @@ var player: CharacterBody3D
 @onready var collision_shape_3d: CollisionShape3D = $"../../../CollisionShape3D"
 
 
-
 func Enter():
 		player = get_tree().get_first_node_in_group("Player")
 		
