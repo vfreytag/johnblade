@@ -23,7 +23,20 @@ var can_double = false
 @onready var collision_shape_3d: Vector3 = $CollisionShape3D.shape.size
 #@onready var crouching = false
 
-func _init() -> void:
+
+
+var health = 100
+var chocheal = 25
+
+
+signal health_updated(health)
+signal killed() 
+signal hit
+
+
+func _init():
+	print(Global.jhealth)
+	Global.jhealth = 100
 	print("hi!")
 	crouching = true
 	print(crouching)
@@ -34,6 +47,55 @@ func _init() -> void:
 	jumped = false
 	has_d_jumped = false
 	can_double = false
+
+	
+func _process(delta):
+	if Global.jhealth == 0:
+		get_tree().reload_current_scene() #DEATh
+		
+		
+func _on_animated_sprite_3d_animation_finished() -> void:
+		if is_on_floor():
+			if crouching == false:
+				if velocity.x == 0:
+					animated_sprite_3d.play("stand")
+				else:
+					animated_sprite_3d.play("run")
+					print("running")
+			else:
+				animated_sprite_3d.play("crouch")
+		else:
+			if has_d_jumped == false:
+				animated_sprite_3d.play("jump")
+			else:
+				animated_sprite_3d.play("double_jump")
+	
+	
+
+#func _on_body_entered(body):
+#	hide()
+#	hit.emit()
+#	print ("ow!")
+
+
+func _input(event):
+	if event.is_action_pressed("consume_choc"):
+		consume_choc()
+	
+func consume_choc():
+	if Global.inv_choc > 0:
+		Global.inv_choc -= 1
+		Global.jhealth += chocheal
+	
+
+	
+#func start(pos):
+	#position = pos
+	#print ("hi!")
+	#show()
+	#$CollisionShape2D.disabled = false
+
+
 
 
 #all movement affected by gravity
@@ -138,24 +200,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	
-func _on_animated_sprite_3d_animation_finished() -> void:
-		if is_on_floor():
-			print(crouching)
-			if crouching == true:
-				animated_sprite_3d.play("crouch")
-			else:
-				if velocity.x == 0:
-					animated_sprite_3d.play("stand")
-				else:
-					animated_sprite_3d.play("run")
-					print("running")
-		else:
-			if has_d_jumped == false:
-				animated_sprite_3d.play("jump")
-			else:
-				animated_sprite_3d.play("double_jump")
-	
-	
+
 	
 		
 	

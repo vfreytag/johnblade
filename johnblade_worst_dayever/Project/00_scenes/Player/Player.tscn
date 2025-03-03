@@ -102,7 +102,8 @@ script = ExtResource("1_ohfd2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0946717, 0)
 alpha_cut = 2
 sprite_frames = SubResource("SpriteFrames_o3j07")
-animation = &"run"
+animation = &"stand"
+autoplay = "stand"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0110781, -0.0950108, -0.0107727)
